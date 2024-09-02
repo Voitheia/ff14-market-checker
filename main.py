@@ -125,7 +125,8 @@ def get_velocity_data():
     '''
     
 def main():
-    get_velocity_data()  
+    #get_velocity_data()
+    i=1
 
 if __name__ == "__main__":
     main()
