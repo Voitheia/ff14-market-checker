@@ -62,11 +62,12 @@ def get_velocity_data():
             r = requests.get(f'https://xivapi.com/item/{id}')
             name = r.json()["Name_en"]
             out_list.append({"name": name, "itemId": id, "dailySaleVelocity": v})
+            time.sleep(.05)
         time.sleep(.05)
     
     out_list.sort(key=extract_velocity, reverse=True)
     json_obj = json.dumps(out_list, indent=4)
-    with open("data.json", "w") as outfile:
+    with open("names_velocity.json", "w") as outfile:
         outfile.write(json_obj)
     
     '''
