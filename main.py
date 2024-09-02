@@ -19,7 +19,13 @@ def jprint(obj):
     text = json.dumps(obj, sort_keys=True, indent=4)
     print(text)
 
-def main():
+def extract_velocity(json):
+    try:
+        return json["dailySaleVelocity"]
+    except KeyError:
+        return 0
+
+def get_velocity_data():
     
     items_list = []
     with open('marketable.json') as f:
@@ -53,9 +59,12 @@ def main():
                 # couldn't find velocity for dc specifically, just skip
                 continue
             #print(f'id: {id} | v: {v}')
-            out_list.append({"itemId": id, "dailySaleVelocity": v})
+            r = requests.get(f'https://xivapi.com/item/{id}')
+            name = r.json()["Name_en"]
+            out_list.append({"name": name, "itemId": id, "dailySaleVelocity": v})
         time.sleep(.05)
     
+    out_list.sort(key=extract_velocity, reverse=True)
     json_obj = json.dumps(out_list, indent=4)
     with open("data.json", "w") as outfile:
         outfile.write(json_obj)
@@ -114,7 +123,8 @@ def main():
     print(na_worlds)
     '''
     
-    
+def main():
+    get_velocity_data()  
 
 if __name__ == "__main__":
     main()
