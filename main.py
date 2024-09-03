@@ -29,10 +29,10 @@ def extract_velocity(json):
 
 def get_velocity_data():
     
-    with open('json/marketable.json') as f:
+    with open('data/json/marketable.json') as f:
         d = json.load(f)
         for i in d:
-            f_name = f'json/item_data/{i}.json'
+            f_name = f'data/json/item_data/{i}.json'
             with open(f_name, 'w') as out:
                 uri = f'https://xivapi.com/item/{i}?private_key={xivapi_key}'
                 r = requests.get(uri)
@@ -43,7 +43,7 @@ def get_velocity_data():
     
     '''
     items_list = []
-    with open('json/marketable.json') as f:
+    with open('data/json/marketable.json') as f:
         d = json.load(f)
         counter = 0
         items = ""
@@ -82,7 +82,7 @@ def get_velocity_data():
     
     out_list.sort(key=extract_velocity, reverse=True)
     json_obj = json.dumps(out_list, indent=4)
-    with open("json/names_velocity.json", "w") as outfile:
+    with open("data/json/names_velocity.json", "w") as outfile:
         outfile.write(json_obj)
     '''
     
