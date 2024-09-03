@@ -2,6 +2,8 @@ import json
 import time
 import requests
 
+xivapi_key = 'e650e180eb1b465ea36269a571fd06b27a64f732f295458aabc8bf28a7fd68b4'
+
 # config
 region = 'North-America'
 dc_name = 'Dynamis'
@@ -27,8 +29,21 @@ def extract_velocity(json):
 
 def get_velocity_data():
     
+    with open('json/marketable.json') as f:
+        d = json.load(f)
+        for i in d:
+            f_name = f'json/item_data/{i}.json'
+            with open(f_name, 'w') as out:
+                uri = f'https://xivapi.com/item/{i}?private_key={xivapi_key}'
+                r = requests.get(uri)
+                json_obj = json.dumps(r.json(), indent=4)
+                out.write(json_obj)
+            time.sleep(.05)
+    
+    
+    '''
     items_list = []
-    with open('marketable.json') as f:
+    with open('json/marketable.json') as f:
         d = json.load(f)
         counter = 0
         items = ""
@@ -67,8 +82,9 @@ def get_velocity_data():
     
     out_list.sort(key=extract_velocity, reverse=True)
     json_obj = json.dumps(out_list, indent=4)
-    with open("names_velocity.json", "w") as outfile:
+    with open("json/names_velocity.json", "w") as outfile:
         outfile.write(json_obj)
+    '''
     
     '''
     out_list = []
@@ -125,7 +141,7 @@ def get_velocity_data():
     '''
     
 def main():
-    #get_velocity_data()
+    get_velocity_data()
     i=1
 
 if __name__ == "__main__":

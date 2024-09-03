@@ -1,0 +1,326 @@
+{
+    "AdditionalData": 0,
+    "Adjective": 0,
+    "AetherialReduce": 0,
+    "AlwaysCollectable": 0,
+    "Article": 0,
+    "BaseParam0": null,
+    "BaseParam0Target": "BaseParam",
+    "BaseParam0TargetID": 0,
+    "BaseParam1": null,
+    "BaseParam1Target": "BaseParam",
+    "BaseParam1TargetID": 0,
+    "BaseParam2": null,
+    "BaseParam2Target": "BaseParam",
+    "BaseParam2TargetID": 0,
+    "BaseParam3": null,
+    "BaseParam3Target": "BaseParam",
+    "BaseParam3TargetID": 0,
+    "BaseParam4": null,
+    "BaseParam4Target": "BaseParam",
+    "BaseParam4TargetID": 0,
+    "BaseParam5": null,
+    "BaseParam5Target": "BaseParam",
+    "BaseParam5TargetID": 0,
+    "BaseParamModifier": 0,
+    "BaseParamSpecial0": null,
+    "BaseParamSpecial0Target": "BaseParam",
+    "BaseParamSpecial0TargetID": 0,
+    "BaseParamSpecial1": null,
+    "BaseParamSpecial1Target": "BaseParam",
+    "BaseParamSpecial1TargetID": 0,
+    "BaseParamSpecial2": null,
+    "BaseParamSpecial2Target": "BaseParam",
+    "BaseParamSpecial2TargetID": 0,
+    "BaseParamSpecial3": null,
+    "BaseParamSpecial3Target": "BaseParam",
+    "BaseParamSpecial3TargetID": 0,
+    "BaseParamSpecial4": null,
+    "BaseParamSpecial4Target": "BaseParam",
+    "BaseParamSpecial4TargetID": 0,
+    "BaseParamSpecial5": null,
+    "BaseParamSpecial5Target": "BaseParam",
+    "BaseParamSpecial5TargetID": 0,
+    "BaseParamValue0": 0,
+    "BaseParamValue1": 0,
+    "BaseParamValue2": 0,
+    "BaseParamValue3": 0,
+    "BaseParamValue4": 0,
+    "BaseParamValue5": 0,
+    "BaseParamValueSpecial0": 0,
+    "BaseParamValueSpecial1": 0,
+    "BaseParamValueSpecial2": 0,
+    "BaseParamValueSpecial3": 0,
+    "BaseParamValueSpecial4": 0,
+    "BaseParamValueSpecial5": 0,
+    "Block": 0,
+    "BlockRate": 0,
+    "Bonuses": {
+        "Mind": {
+            "ID": 5,
+            "Max": 49,
+            "MaxHQ": 61,
+            "Relative": true,
+            "Value": 16,
+            "ValueHQ": 20
+        }
+    },
+    "CanBeHq": 1,
+    "CastTimeS": 0,
+    "ClassJobCategory": null,
+    "ClassJobCategoryTarget": "ClassJobCategory",
+    "ClassJobCategoryTargetID": 0,
+    "ClassJobRepair": null,
+    "ClassJobRepairTarget": "ClassJob",
+    "ClassJobRepairTargetID": 0,
+    "ClassJobUse": null,
+    "ClassJobUseTarget": "ClassJob",
+    "ClassJobUseTargetID": 0,
+    "CooldownS": 300,
+    "DamageMag": 0,
+    "DamagePhys": 0,
+    "DefenseMag": 0,
+    "DefensePhys": 0,
+    "DelayMs": 0,
+    "Description": "This potent concoction temporarily increases mind.\n\n\n\n<span style=\"color:#00cc22;\">Duration:</span> 15s",
+    "DescriptionJSON": [
+        "This potent concoction temporarily increases mind.\n\n\n\n<span style=\"color:#00cc22;\">Duration:</span> 15s"
+    ],
+    "DescriptionJSON_cn": null,
+    "DescriptionJSON_de": [
+        "Dieses Gebr\u00e4u erh\u00f6ht die Willenskraft zeitweise um einen beachtlichen Betrag.\n\nWirkungsdauer: 15 Sekunden"
+    ],
+    "DescriptionJSON_en": [
+        "This potent concoction temporarily increases mind.\n\n\n\n<span style=\"color:#00cc22;\">Duration:</span> 15s"
+    ],
+    "DescriptionJSON_fr": [
+        "Cette essence de niveau \u00e9lev\u00e9 augmente l'esprit.\n\nDur\u00e9e d'effet: 15 secondes"
+    ],
+    "DescriptionJSON_ja": [
+        "\u7406\u6027\u3092\u9ad8\u3081\u308b\u79d8\u85ac\n\n\u52b9\u679c\u6642\u9593 0:15"
+    ],
+    "DescriptionJSON_kr": null,
+    "Description_cn": null,
+    "Description_de": "Dieses Gebr\u00e4u erh\u00f6ht die Willenskraft zeitweise um einen beachtlichen Betrag.\n\nWirkungsdauer: 15 Sekunden",
+    "Description_en": "This potent concoction temporarily increases mind.\n\n\n\n<span style=\"color:#00cc22;\">Duration:</span> 15s",
+    "Description_fr": "Cette essence de niveau \u00e9lev\u00e9 augmente l'esprit.\n\nDur\u00e9e d'effet: 15 secondes",
+    "Description_ja": "\u7406\u6027\u3092\u9ad8\u3081\u308b\u79d8\u85ac\n\n\u52b9\u679c\u6642\u9593 0:15",
+    "Description_kr": null,
+    "Desynth": 0,
+    "DyeCount": 0,
+    "EquipRestriction": 0,
+    "EquipSlotCategory": null,
+    "EquipSlotCategoryTarget": "EquipSlotCategory",
+    "EquipSlotCategoryTargetID": 0,
+    "FilterGroup": 6,
+    "GameContentLinks": {
+        "DailySupplyItem": {
+            "Item3": [
+                64
+            ]
+        },
+        "GCSupplyDuty": {
+            "Item02": [
+                44
+            ]
+        },
+        "GilShopItem": {
+            "Item": [
+                "262144.14",
+                "262513.8"
+            ]
+        },
+        "Quest": {
+            "ItemReward10": [
+                66032
+            ],
+            "ItemReward11": [
+                66032
+            ],
+            "ItemReward12": [
+                66570
+            ],
+            "ItemReward13": [
+                66570,
+                66545
+            ],
+            "ItemReward14": [
+                66545
+            ],
+            "OptionalItemReward1": [
+                66032
+            ]
+        },
+        "Recipe": {
+            "ItemIngredient3": [
+                1547
+            ],
+            "ItemResult": [
+                1173
+            ]
+        }
+    },
+    "GamePatch": {
+        "Banner": "https://i.imgur.com/ZUUtGzH.png",
+        "ExName": "A Realm Reborn",
+        "ExVersion": 0,
+        "ID": 2,
+        "Name": "Patch 2.0: A Realm Reborn",
+        "Name_cn": "Patch 2.0: A Realm Reborn",
+        "Name_de": "Patch 2.0: A Realm Reborn",
+        "Name_en": "Patch 2.0: A Realm Reborn",
+        "Name_fr": "Patch 2.0: A Realm Reborn",
+        "Name_ja": "\u65b0\u751f\u30a8\u30aa\u30eb\u30bc\u30a2 2.0",
+        "Name_kr": "Patch 2.0: A Realm Reborn",
+        "ReleaseDate": 1376611200,
+        "Version": "2.0"
+    },
+    "GrandCompany": null,
+    "GrandCompanyTarget": "GrandCompany",
+    "GrandCompanyTargetID": 0,
+    "ID": 4608,
+    "Icon": "/i/020000/020669.png",
+    "IconHD": "/i/020000/020669_hr1.png",
+    "IconID": 20669,
+    "IsAdvancedMeldingPermitted": 0,
+    "IsCollectable": 0,
+    "IsCrestWorthy": 0,
+    "IsGlamourous": 0,
+    "IsIndisposable": 0,
+    "IsPvP": 0,
+    "IsUnique": 0,
+    "IsUntradable": 0,
+    "ItemAction": {
+        "CondBattle": 1,
+        "CondLv": 0,
+        "CondPVP": 1,
+        "CondPVPOnly": 0,
+        "Data0": 49,
+        "Data1": 25,
+        "Data2": 15,
+        "Data3": 0,
+        "Data4": 0,
+        "Data5": 0,
+        "Data6": 0,
+        "Data7": 0,
+        "Data8": 0,
+        "DataHQ0": 49,
+        "DataHQ1": 25,
+        "DataHQ2": 15,
+        "DataHQ3": 0,
+        "DataHQ4": 0,
+        "DataHQ5": 0,
+        "DataHQ6": 0,
+        "DataHQ7": 0,
+        "DataHQ8": 0,
+        "GameContentLinks": null,
+        "ID": 192,
+        "Type": 846,
+        "Url": "/ItemAction/192"
+    },
+    "ItemActionTarget": "ItemAction",
+    "ItemActionTargetID": 192,
+    "ItemGlamour": null,
+    "ItemGlamourTarget": "Item",
+    "ItemGlamourTargetID": 0,
+    "ItemKind": {
+        "ID": 5,
+        "Name": "Medicines & Meals",
+        "Name_cn": "",
+        "Name_de": "Arznei/Gerichte",
+        "Name_en": "Medicines & Meals",
+        "Name_fr": "Consommables",
+        "Name_ja": "\u85ac\u54c1\u30fb\u8abf\u7406\u54c1",
+        "Name_kr": ""
+    },
+    "ItemRepair": null,
+    "ItemRepairTarget": "ItemRepairResource",
+    "ItemRepairTargetID": 0,
+    "ItemSearchCategory": {
+        "Category": 3,
+        "ClassJob": null,
+        "ClassJobTarget": "ClassJob",
+        "ClassJobTargetID": 0,
+        "ID": 43,
+        "Icon": "/i/060000/060136.png",
+        "IconHD": "/i/060000/060136_hr1.png",
+        "IconID": 60136,
+        "Name": "Medicine",
+        "Name_de": "Arznei",
+        "Name_en": "Medicine",
+        "Name_fr": "M\u00e9dicament",
+        "Name_ja": "\u85ac\u54c1",
+        "Order": 0
+    },
+    "ItemSearchCategoryTarget": "ItemSearchCategory",
+    "ItemSearchCategoryTargetID": 43,
+    "ItemSeries": null,
+    "ItemSeriesTarget": "ItemSeries",
+    "ItemSeriesTargetID": 0,
+    "ItemSortCategory": {
+        "ID": 6,
+        "Param": 6
+    },
+    "ItemSortCategoryTarget": "ItemSortCategory",
+    "ItemSortCategoryTargetID": 6,
+    "ItemSpecialBonus": null,
+    "ItemSpecialBonusParam": 0,
+    "ItemSpecialBonusTarget": "ItemSpecialBonus",
+    "ItemSpecialBonusTargetID": 0,
+    "ItemUICategory": {
+        "ID": 44,
+        "Icon": "/i/060000/060136.png",
+        "IconHD": "/i/060000/060136_hr1.png",
+        "IconID": 60136,
+        "Name": "Medicine",
+        "Name_de": "Arznei",
+        "Name_en": "Medicine",
+        "Name_fr": "M\u00e9dicament",
+        "Name_ja": "\u85ac\u54c1",
+        "OrderMajor": 5,
+        "OrderMinor": 0
+    },
+    "ItemUICategoryTarget": "ItemUICategory",
+    "ItemUICategoryTargetID": 44,
+    "LevelEquip": 1,
+    "LevelItem": 50,
+    "Lot": 0,
+    "Materia": null,
+    "MateriaSlotCount": 0,
+    "MaterializeType": 0,
+    "ModelMain": "0, 0, 0, 0",
+    "ModelSub": "0, 0, 0, 0",
+    "Name": "Mega-Potion of Mind",
+    "Name_de": "Megatrank der Willenskraft",
+    "Name_en": "Mega-Potion of Mind",
+    "Name_fr": "Essence d'esprit",
+    "Name_ja": "\u5fc3\u529b\u306e\u79d8\u85ac",
+    "Patch": 2,
+    "Plural": "mega-potions of mind",
+    "Plural_de": "Megatr\u00e4nke[p] der Willenskraft",
+    "Plural_en": "mega-potions of mind",
+    "Plural_fr": "flacons d'essence d'esprit",
+    "Plural_ja": "",
+    "PossessivePronoun": 0,
+    "PriceLow": 15,
+    "PriceMid": 950,
+    "Pronoun": 0,
+    "Rarity": 1,
+    "Recipes": [
+        {
+            "ClassJobID": 14,
+            "ID": 1173,
+            "Level": 44
+        }
+    ],
+    "RequiredPvpRank": 0,
+    "Singular": "mega-potion of mind",
+    "Singular_de": "Megatrank[p] der Willenskraft",
+    "Singular_en": "mega-potion of mind",
+    "Singular_fr": "flacon d'essence d'esprit",
+    "Singular_ja": "\u5fc3\u529b\u306e\u79d8\u85ac",
+    "StackSize": 999,
+    "StartsWithVowel": 0,
+    "SubStatCategory": 0,
+    "Url": "/Item/4608"
+}

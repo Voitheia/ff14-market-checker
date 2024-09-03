@@ -1,0 +1,318 @@
+{
+    "AdditionalData": 52,
+    "Adjective": 0,
+    "AetherialReduce": 0,
+    "AlwaysCollectable": 0,
+    "Article": 0,
+    "BaseParam0": null,
+    "BaseParam0Target": "BaseParam",
+    "BaseParam0TargetID": 0,
+    "BaseParam1": null,
+    "BaseParam1Target": "BaseParam",
+    "BaseParam1TargetID": 0,
+    "BaseParam2": null,
+    "BaseParam2Target": "BaseParam",
+    "BaseParam2TargetID": 0,
+    "BaseParam3": null,
+    "BaseParam3Target": "BaseParam",
+    "BaseParam3TargetID": 0,
+    "BaseParam4": null,
+    "BaseParam4Target": "BaseParam",
+    "BaseParam4TargetID": 0,
+    "BaseParam5": null,
+    "BaseParam5Target": "BaseParam",
+    "BaseParam5TargetID": 0,
+    "BaseParamModifier": 0,
+    "BaseParamSpecial0": null,
+    "BaseParamSpecial0Target": "BaseParam",
+    "BaseParamSpecial0TargetID": 0,
+    "BaseParamSpecial1": null,
+    "BaseParamSpecial1Target": "BaseParam",
+    "BaseParamSpecial1TargetID": 0,
+    "BaseParamSpecial2": null,
+    "BaseParamSpecial2Target": "BaseParam",
+    "BaseParamSpecial2TargetID": 0,
+    "BaseParamSpecial3": null,
+    "BaseParamSpecial3Target": "BaseParam",
+    "BaseParamSpecial3TargetID": 0,
+    "BaseParamSpecial4": null,
+    "BaseParamSpecial4Target": "BaseParam",
+    "BaseParamSpecial4TargetID": 0,
+    "BaseParamSpecial5": null,
+    "BaseParamSpecial5Target": "BaseParam",
+    "BaseParamSpecial5TargetID": 0,
+    "BaseParamValue0": 0,
+    "BaseParamValue1": 0,
+    "BaseParamValue2": 0,
+    "BaseParamValue3": 0,
+    "BaseParamValue4": 0,
+    "BaseParamValue5": 0,
+    "BaseParamValueSpecial0": 0,
+    "BaseParamValueSpecial1": 0,
+    "BaseParamValueSpecial2": 0,
+    "BaseParamValueSpecial3": 0,
+    "BaseParamValueSpecial4": 0,
+    "BaseParamValueSpecial5": 0,
+    "Block": 0,
+    "BlockRate": 0,
+    "CanBeHq": 0,
+    "CastTimeS": 2,
+    "ClassJobCategory": null,
+    "ClassJobCategoryTarget": "ClassJobCategory",
+    "ClassJobCategoryTargetID": 0,
+    "ClassJobRepair": null,
+    "ClassJobRepairTarget": "ClassJob",
+    "ClassJobRepairTargetID": 0,
+    "ClassJobUse": null,
+    "ClassJobUseTarget": "ClassJob",
+    "ClassJobUseTargetID": 0,
+    "CooldownS": 0,
+    "DamageMag": 0,
+    "DamagePhys": 0,
+    "DefenseMag": 0,
+    "DefensePhys": 0,
+    "DelayMs": 0,
+    "Description": "A labor-saving green dye, used for coloring anything from cloth to metal.",
+    "DescriptionJSON": [
+        "A labor-saving green dye, used for coloring anything from cloth to metal."
+    ],
+    "DescriptionJSON_cn": null,
+    "DescriptionJSON_de": [
+        "Ein Allround-Farbstoff, mit dem sich alles f\u00e4rben l\u00e4sst - von Stoffen bis zu Metallen."
+    ],
+    "DescriptionJSON_en": [
+        "A labor-saving green dye, used for coloring anything from cloth to metal."
+    ],
+    "DescriptionJSON_fr": [
+        "Un colorant universel pouvant \u00eatre utilis\u00e9 pour teindre toutes sortes d'\u00e9quipements."
+    ],
+    "DescriptionJSON_ja": [
+        "\u88c5\u5099\u54c1\u3092\u67d3\u8272\u3059\u308b\u305f\u3081\u306e\u4e07\u80fd\u67d3\u6599"
+    ],
+    "DescriptionJSON_kr": null,
+    "Description_cn": null,
+    "Description_de": "Ein Allround-Farbstoff, mit dem sich alles f\u00e4rben l\u00e4sst - von Stoffen bis zu Metallen.",
+    "Description_en": "A labor-saving green dye, used for coloring anything from cloth to metal.",
+    "Description_fr": "Un colorant universel pouvant \u00eatre utilis\u00e9 pour teindre toutes sortes d'\u00e9quipements.",
+    "Description_ja": "\u88c5\u5099\u54c1\u3092\u67d3\u8272\u3059\u308b\u305f\u3081\u306e\u4e07\u80fd\u67d3\u6599",
+    "Description_kr": null,
+    "Desynth": 0,
+    "DyeCount": 0,
+    "EquipRestriction": 0,
+    "EquipSlotCategory": null,
+    "EquipSlotCategoryTarget": "EquipSlotCategory",
+    "EquipSlotCategoryTargetID": 0,
+    "FilterGroup": 15,
+    "GameContentLinks": {
+        "GilShopItem": {
+            "Item": [
+                "262475.11",
+                "262476.11",
+                "262477.11",
+                "262478.11",
+                "262479.11",
+                "262480.11",
+                "262696.11"
+            ]
+        },
+        "Quest": {
+            "ItemReward13": [
+                67516
+            ],
+            "ItemReward14": [
+                67516
+            ],
+            "OptionalItemReward4": [
+                67516
+            ]
+        },
+        "Recipe": {
+            "ItemResult": [
+                30006,
+                30019,
+                30032,
+                30045,
+                30058,
+                30071,
+                30084,
+                30097
+            ]
+        },
+        "StainTransient": {
+            "Item1": [
+                52
+            ]
+        }
+    },
+    "GamePatch": {
+        "Banner": "https://i.imgur.com/ZUUtGzH.png",
+        "ExName": "A Realm Reborn",
+        "ExVersion": 0,
+        "ID": 2,
+        "Name": "Patch 2.0: A Realm Reborn",
+        "Name_cn": "Patch 2.0: A Realm Reborn",
+        "Name_de": "Patch 2.0: A Realm Reborn",
+        "Name_en": "Patch 2.0: A Realm Reborn",
+        "Name_fr": "Patch 2.0: A Realm Reborn",
+        "Name_ja": "\u65b0\u751f\u30a8\u30aa\u30eb\u30bc\u30a2 2.0",
+        "Name_kr": "Patch 2.0: A Realm Reborn",
+        "ReleaseDate": 1376611200,
+        "Version": "2.0"
+    },
+    "GrandCompany": null,
+    "GrandCompanyTarget": "GrandCompany",
+    "GrandCompanyTargetID": 0,
+    "ID": 5780,
+    "Icon": "/i/022000/022810.png",
+    "IconHD": "/i/022000/022810_hr1.png",
+    "IconID": 22810,
+    "IsAdvancedMeldingPermitted": 0,
+    "IsCollectable": 0,
+    "IsCrestWorthy": 0,
+    "IsGlamourous": 0,
+    "IsIndisposable": 0,
+    "IsPvP": 0,
+    "IsUnique": 0,
+    "IsUntradable": 0,
+    "ItemAction": null,
+    "ItemActionTarget": "ItemAction",
+    "ItemActionTargetID": 0,
+    "ItemGlamour": null,
+    "ItemGlamourTarget": "Item",
+    "ItemGlamourTargetID": 0,
+    "ItemKind": {
+        "ID": 6,
+        "Name": "Materials",
+        "Name_cn": "",
+        "Name_de": "Materialien",
+        "Name_en": "Materials",
+        "Name_fr": "Mat\u00e9riaux",
+        "Name_ja": "\u7d20\u6750",
+        "Name_kr": ""
+    },
+    "ItemRepair": null,
+    "ItemRepairTarget": "ItemRepairResource",
+    "ItemRepairTargetID": 0,
+    "ItemSearchCategory": {
+        "Category": 3,
+        "ClassJob": null,
+        "ClassJobTarget": "ClassJob",
+        "ClassJobTargetID": 0,
+        "ID": 54,
+        "Icon": "/i/060000/060147.png",
+        "IconHD": "/i/060000/060147_hr1.png",
+        "IconID": 60147,
+        "Name": "Dyes",
+        "Name_de": "Farbstoff",
+        "Name_en": "Dyes",
+        "Name_fr": "Teinture",
+        "Name_ja": "\u67d3\u6599",
+        "Order": 11
+    },
+    "ItemSearchCategoryTarget": "ItemSearchCategory",
+    "ItemSearchCategoryTargetID": 54,
+    "ItemSeries": null,
+    "ItemSeriesTarget": "ItemSeries",
+    "ItemSeriesTargetID": 0,
+    "ItemSortCategory": {
+        "ID": 11,
+        "Param": 27
+    },
+    "ItemSortCategoryTarget": "ItemSortCategory",
+    "ItemSortCategoryTargetID": 11,
+    "ItemSpecialBonus": null,
+    "ItemSpecialBonusParam": 0,
+    "ItemSpecialBonusTarget": "ItemSpecialBonus",
+    "ItemSpecialBonusTargetID": 0,
+    "ItemUICategory": {
+        "ID": 55,
+        "Icon": "/i/060000/060147.png",
+        "IconHD": "/i/060000/060147_hr1.png",
+        "IconID": 60147,
+        "Name": "Dye",
+        "Name_de": "Farbstoff",
+        "Name_en": "Dye",
+        "Name_fr": "Teinture",
+        "Name_ja": "\u67d3\u6599",
+        "OrderMajor": 6,
+        "OrderMinor": 10
+    },
+    "ItemUICategoryTarget": "ItemUICategory",
+    "ItemUICategoryTargetID": 55,
+    "LevelEquip": 1,
+    "LevelItem": 30,
+    "Lot": 0,
+    "Materia": null,
+    "MateriaSlotCount": 0,
+    "MaterializeType": 0,
+    "ModelMain": "0, 0, 0, 0",
+    "ModelSub": "0, 0, 0, 0",
+    "Name": "Hunter Green Dye",
+    "Name_de": "J\u00e4gergr\u00fcner Farbstoff",
+    "Name_en": "Hunter Green Dye",
+    "Name_fr": "Teinture vert chasseur",
+    "Name_ja": "\u30ab\u30e9\u30e9\u30f3\u30c8:\u30cf\u30f3\u30bf\u30fc\u30b0\u30ea\u30fc\u30f3",
+    "Patch": 2,
+    "Plural": "pots of hunter green dye",
+    "Plural_de": "T\u00f6pfe[p] j\u00e4gergr\u00fcnen Farbstoffs",
+    "Plural_en": "pots of hunter green dye",
+    "Plural_fr": "pots de teinture vert chasseur",
+    "Plural_ja": "",
+    "PossessivePronoun": 0,
+    "PriceLow": 4,
+    "PriceMid": 216,
+    "Pronoun": 0,
+    "Rarity": 1,
+    "Recipes": [
+        {
+            "ClassJobID": 8,
+            "ID": 30006,
+            "Level": 30
+        },
+        {
+            "ClassJobID": 9,
+            "ID": 30019,
+            "Level": 30
+        },
+        {
+            "ClassJobID": 10,
+            "ID": 30032,
+            "Level": 30
+        },
+        {
+            "ClassJobID": 11,
+            "ID": 30045,
+            "Level": 30
+        },
+        {
+            "ClassJobID": 12,
+            "ID": 30058,
+            "Level": 30
+        },
+        {
+            "ClassJobID": 13,
+            "ID": 30071,
+            "Level": 30
+        },
+        {
+            "ClassJobID": 14,
+            "ID": 30084,
+            "Level": 30
+        },
+        {
+            "ClassJobID": 15,
+            "ID": 30097,
+            "Level": 30
+        }
+    ],
+    "RequiredPvpRank": 0,
+    "Singular": "pot of hunter green dye",
+    "Singular_de": "Topf[p] j\u00e4gergr\u00fcnen Farbstoffs",
+    "Singular_en": "pot of hunter green dye",
+    "Singular_fr": "pot de teinture vert chasseur",
+    "Singular_ja": "\u30ab\u30e9\u30e9\u30f3\u30c8:\u30cf\u30f3\u30bf\u30fc\u30b0\u30ea\u30fc\u30f3",
+    "StackSize": 999,
+    "StartsWithVowel": 0,
+    "SubStatCategory": 0,
+    "Url": "/Item/5780"
+}

@@ -1,0 +1,318 @@
+{
+    "AdditionalData": 0,
+    "Adjective": 0,
+    "AetherialReduce": 0,
+    "AlwaysCollectable": 0,
+    "Article": 0,
+    "BaseParam0": null,
+    "BaseParam0Target": "BaseParam",
+    "BaseParam0TargetID": 0,
+    "BaseParam1": null,
+    "BaseParam1Target": "BaseParam",
+    "BaseParam1TargetID": 0,
+    "BaseParam2": null,
+    "BaseParam2Target": "BaseParam",
+    "BaseParam2TargetID": 0,
+    "BaseParam3": null,
+    "BaseParam3Target": "BaseParam",
+    "BaseParam3TargetID": 0,
+    "BaseParam4": null,
+    "BaseParam4Target": "BaseParam",
+    "BaseParam4TargetID": 0,
+    "BaseParam5": null,
+    "BaseParam5Target": "BaseParam",
+    "BaseParam5TargetID": 0,
+    "BaseParamModifier": 0,
+    "BaseParamSpecial0": null,
+    "BaseParamSpecial0Target": "BaseParam",
+    "BaseParamSpecial0TargetID": 0,
+    "BaseParamSpecial1": null,
+    "BaseParamSpecial1Target": "BaseParam",
+    "BaseParamSpecial1TargetID": 0,
+    "BaseParamSpecial2": null,
+    "BaseParamSpecial2Target": "BaseParam",
+    "BaseParamSpecial2TargetID": 0,
+    "BaseParamSpecial3": null,
+    "BaseParamSpecial3Target": "BaseParam",
+    "BaseParamSpecial3TargetID": 0,
+    "BaseParamSpecial4": null,
+    "BaseParamSpecial4Target": "BaseParam",
+    "BaseParamSpecial4TargetID": 0,
+    "BaseParamSpecial5": null,
+    "BaseParamSpecial5Target": "BaseParam",
+    "BaseParamSpecial5TargetID": 0,
+    "BaseParamValue0": 0,
+    "BaseParamValue1": 0,
+    "BaseParamValue2": 0,
+    "BaseParamValue3": 0,
+    "BaseParamValue4": 0,
+    "BaseParamValue5": 0,
+    "BaseParamValueSpecial0": 0,
+    "BaseParamValueSpecial1": 0,
+    "BaseParamValueSpecial2": 0,
+    "BaseParamValueSpecial3": 0,
+    "BaseParamValueSpecial4": 0,
+    "BaseParamValueSpecial5": 0,
+    "Block": 0,
+    "BlockRate": 0,
+    "CanBeHq": 0,
+    "CastTimeS": 2,
+    "ClassJobCategory": null,
+    "ClassJobCategoryTarget": "ClassJobCategory",
+    "ClassJobCategoryTargetID": 0,
+    "ClassJobRepair": null,
+    "ClassJobRepairTarget": "ClassJob",
+    "ClassJobRepairTargetID": 0,
+    "ClassJobUse": null,
+    "ClassJobUseTarget": "ClassJob",
+    "ClassJobUseTargetID": 0,
+    "CooldownS": 0,
+    "DamageMag": 0,
+    "DamagePhys": 0,
+    "DefenseMag": 0,
+    "DefensePhys": 0,
+    "DelayMs": 0,
+    "Description": "Mined from veins found in Abalathia's Spine, this pinkish salt has a high mineral content which adds depth to its flavor.",
+    "DescriptionJSON": [
+        "Mined from veins found in Abalathia's Spine, this pinkish salt has a high mineral content which adds depth to its flavor."
+    ],
+    "DescriptionJSON_cn": null,
+    "DescriptionJSON_de": [
+        "Ein aromatisches Salz, das vorwiegend in einem Bergwerk in Abalathias R\u00fcckgrat gewonnen wird."
+    ],
+    "DescriptionJSON_en": [
+        "Mined from veins found in Abalathia's Spine, this pinkish salt has a high mineral content which adds depth to its flavor."
+    ],
+    "DescriptionJSON_fr": [
+        "Du sel cristallis\u00e9 de saveur tr\u00e8s forte que l'on trouve principalement en Abalathia."
+    ],
+    "DescriptionJSON_ja": [
+        "\u4e3b\u306b\u30a2\u30d0\u30e9\u30b7\u30a2\u3067\u63a1\u53d6\u3055\u308c\u308b\u3001\u6df1\u307f\u306e\u3042\u308b\u5473\u308f\u3044\u306e\u5ca9\u5869"
+    ],
+    "DescriptionJSON_kr": null,
+    "Description_cn": null,
+    "Description_de": "Ein aromatisches Salz, das vorwiegend in einem Bergwerk in Abalathias R\u00fcckgrat gewonnen wird.",
+    "Description_en": "Mined from veins found in Abalathia's Spine, this pinkish salt has a high mineral content which adds depth to its flavor.",
+    "Description_fr": "Du sel cristallis\u00e9 de saveur tr\u00e8s forte que l'on trouve principalement en Abalathia.",
+    "Description_ja": "\u4e3b\u306b\u30a2\u30d0\u30e9\u30b7\u30a2\u3067\u63a1\u53d6\u3055\u308c\u308b\u3001\u6df1\u307f\u306e\u3042\u308b\u5473\u308f\u3044\u306e\u5ca9\u5869",
+    "Description_kr": null,
+    "Desynth": 0,
+    "DyeCount": 0,
+    "EquipRestriction": 0,
+    "EquipSlotCategory": null,
+    "EquipSlotCategoryTarget": "EquipSlotCategory",
+    "EquipSlotCategoryTargetID": 0,
+    "FilterGroup": 12,
+    "GameContentLinks": {
+        "CollectablesShopItem": {
+            "Item": [
+                "12.8",
+                12
+            ]
+        },
+        "GatheringItem": {
+            "Item": [
+                326
+            ]
+        },
+        "GilShopItem": {
+            "Item": [
+                "262509.2"
+            ]
+        },
+        "LeveRewardItemGroup": {
+            "Item2": [
+                533,
+                543
+            ]
+        },
+        "MasterpieceSupplyDuty": {
+            "RequiredItem0": [
+                111
+            ]
+        },
+        "Recipe": {
+            "ItemIngredient0": [
+                31206,
+                31207,
+                31208,
+                31209,
+                31210
+            ],
+            "ItemIngredient1": [
+                2805,
+                3889,
+                31218
+            ],
+            "ItemIngredient2": [
+                2823,
+                2937,
+                3883,
+                3895,
+                34163
+            ],
+            "ItemIngredient3": [
+                3900
+            ],
+            "ItemIngredient4": [
+                2806,
+                2808,
+                2811,
+                2812,
+                3898,
+                31337,
+                31478
+            ],
+            "ItemIngredient5": [
+                2810,
+                2815,
+                32047,
+                32049
+            ]
+        },
+        "RetainerTaskNormal": {
+            "Item": [
+                508
+            ]
+        },
+        "SpecialShop": {
+            "ItemReceive20": [
+                1769681
+            ]
+        }
+    },
+    "GamePatch": {
+        "Banner": "https://img.finalfantasyxiv.com/lds/h/O/U5TufT2QVnzXONyLf61X468dFU.png",
+        "ExName": "Heavensward",
+        "ExVersion": 1,
+        "ID": 19,
+        "Name": "Patch 3.0: Heavensward",
+        "Name_cn": "Patch 3.0: Heavensward",
+        "Name_de": "Patch 3.0: Heavensward",
+        "Name_en": "Patch 3.0: Heavensward",
+        "Name_fr": "Patch 3.0: Heavensward",
+        "Name_ja": "Patch 3.0: Heavensward",
+        "Name_kr": "Patch 3.0: Heavensward",
+        "PatchNotes": "https://na.finalfantasyxiv.com/lodestone/topics/detail/464263b3ce6026cdf98a49bf8f98c204c6199e5a",
+        "PatchNotes_de": "https://de.finalfantasyxiv.com/lodestone/topics/detail/f0575b82a639492e5a70e34d823d77bddcb7f686",
+        "PatchNotes_en": "https://na.finalfantasyxiv.com/lodestone/topics/detail/464263b3ce6026cdf98a49bf8f98c204c6199e5a",
+        "PatchNotes_fr": "https://fr.finalfantasyxiv.com/lodestone/topics/detail/ec7affcdb9614e69cb8903810c1f9741c00bc55d",
+        "PatchNotes_ja": "https://jp.finalfantasyxiv.com/lodestone/topics/detail/3a31eca82d4316c5a2fd0f68c89befb5e5791022",
+        "ReleaseDate": 1434682800,
+        "Version": "3.0"
+    },
+    "GrandCompany": null,
+    "GrandCompanyTarget": "GrandCompany",
+    "GrandCompanyTargetID": 0,
+    "ID": 12901,
+    "Icon": "/i/022000/022617.png",
+    "IconHD": "/i/022000/022617_hr1.png",
+    "IconID": 22617,
+    "IsAdvancedMeldingPermitted": 0,
+    "IsCollectable": 0,
+    "IsCrestWorthy": 0,
+    "IsGlamourous": 0,
+    "IsIndisposable": 0,
+    "IsPvP": 0,
+    "IsUnique": 0,
+    "IsUntradable": 0,
+    "ItemAction": null,
+    "ItemActionTarget": "ItemAction",
+    "ItemActionTargetID": 0,
+    "ItemGlamour": null,
+    "ItemGlamourTarget": "Item",
+    "ItemGlamourTargetID": 0,
+    "ItemKind": {
+        "ID": 5,
+        "Name": "Medicines & Meals",
+        "Name_cn": "",
+        "Name_de": "Arznei/Gerichte",
+        "Name_en": "Medicines & Meals",
+        "Name_fr": "Consommables",
+        "Name_ja": "\u85ac\u54c1\u30fb\u8abf\u7406\u54c1",
+        "Name_kr": ""
+    },
+    "ItemRepair": null,
+    "ItemRepairTarget": "ItemRepairResource",
+    "ItemRepairTargetID": 0,
+    "ItemSearchCategory": {
+        "Category": 3,
+        "ClassJob": null,
+        "ClassJobTarget": "ClassJob",
+        "ClassJobTargetID": 0,
+        "ID": 44,
+        "Icon": "/i/060000/060137.png",
+        "IconHD": "/i/060000/060137_hr1.png",
+        "IconID": 60137,
+        "Name": "Ingredients",
+        "Name_de": "Zutat",
+        "Name_en": "Ingredients",
+        "Name_fr": "Ingr\u00e9dient",
+        "Name_ja": "\u98df\u6750",
+        "Order": 1
+    },
+    "ItemSearchCategoryTarget": "ItemSearchCategory",
+    "ItemSearchCategoryTargetID": 44,
+    "ItemSeries": null,
+    "ItemSeriesTarget": "ItemSeries",
+    "ItemSeriesTargetID": 0,
+    "ItemSortCategory": {
+        "ID": 16,
+        "Param": 40
+    },
+    "ItemSortCategoryTarget": "ItemSortCategory",
+    "ItemSortCategoryTargetID": 16,
+    "ItemSpecialBonus": null,
+    "ItemSpecialBonusParam": 0,
+    "ItemSpecialBonusTarget": "ItemSpecialBonus",
+    "ItemSpecialBonusTargetID": 0,
+    "ItemUICategory": {
+        "ID": 45,
+        "Icon": "/i/060000/060137.png",
+        "IconHD": "/i/060000/060137_hr1.png",
+        "IconID": 60137,
+        "Name": "Ingredient",
+        "Name_de": "Zutat",
+        "Name_en": "Ingredient",
+        "Name_fr": "Ingr\u00e9dient",
+        "Name_ja": "\u98df\u6750",
+        "OrderMajor": 6,
+        "OrderMinor": 0
+    },
+    "ItemUICategoryTarget": "ItemUICategory",
+    "ItemUICategoryTargetID": 45,
+    "LevelEquip": 1,
+    "LevelItem": 139,
+    "Lot": 0,
+    "Materia": null,
+    "MateriaSlotCount": 0,
+    "MaterializeType": 0,
+    "ModelMain": "0, 0, 0, 0",
+    "ModelSub": "0, 0, 0, 0",
+    "Name": "Abalathian Rock Salt",
+    "Name_de": "Abalathisches Steinsalz",
+    "Name_en": "Abalathian Rock Salt",
+    "Name_fr": "Sel gemme d'Abalathia",
+    "Name_ja": "\u30a2\u30d0\u30e9\u30b7\u30a2\u5ca9\u5869",
+    "Patch": 19,
+    "Plural": "chunks of Abalathian rock salt",
+    "Plural_de": "St\u00fccke[p] abalathisches Steinsalz",
+    "Plural_en": "chunks of Abalathian rock salt",
+    "Plural_fr": "morceaux de sel gemme d'Abalathia",
+    "Plural_ja": "",
+    "PossessivePronoun": 0,
+    "PriceLow": 2,
+    "PriceMid": 1980,
+    "Pronoun": 0,
+    "Rarity": 1,
+    "RequiredPvpRank": 0,
+    "Singular": "chunk of Abalathian rock salt",
+    "Singular_de": "St\u00fcck[p] abalathisches Steinsalz",
+    "Singular_en": "chunk of Abalathian rock salt",
+    "Singular_fr": "morceau de sel gemme d'Abalathia",
+    "Singular_ja": "\u30a2\u30d0\u30e9\u30b7\u30a2\u5ca9\u5869",
+    "StackSize": 999,
+    "StartsWithVowel": 0,
+    "SubStatCategory": 0,
+    "Url": "/Item/12901"
+}
