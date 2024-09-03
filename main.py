@@ -1,6 +1,7 @@
 import json
 import time
 import requests
+#from ff14_market_checker.delta_checker.models import DC, World, Item, Market_Data
 
 xivapi_key = 'e650e180eb1b465ea36269a571fd06b27a64f732f295458aabc8bf28a7fd68b4'
 
@@ -28,8 +29,17 @@ def extract_velocity(json):
         return 0
 
 def get_velocity_data():
+    static = 'ff14_market_checker/delta_checker/static/'
+    with open(f'{static}json/names_velocity.json') as f:
+        d = json.load(f)
+        for i in d:
+            icon = f'icons/{i["itemId"]}.png'
+            print(icon)
+            break
     
     
+    
+    '''
     with open('data/json/marketable.json') as f:
         d = json.load(f)
         for i in d:
@@ -41,7 +51,7 @@ def get_velocity_data():
                 with open(f'data/icon/{i}.png', 'wb') as image_handler:
                     image_handler.write(img_data)
             time.sleep(.05)
-                
+    '''            
     
     
     
