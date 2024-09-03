@@ -29,6 +29,23 @@ def extract_velocity(json):
 
 def get_velocity_data():
     
+    
+    with open('data/json/marketable.json') as f:
+        d = json.load(f)
+        for i in d:
+            f_name = f'data/json/item_data/{i}.json'
+            with open(f_name) as item_data:
+                i_d = json.load(item_data)
+                uri = f'https://xivapi.com{i_d["IconHD"]}?private_key={xivapi_key}'
+                img_data = requests.get(uri).content
+                with open(f'data/icon/{i}.png', 'wb') as image_handler:
+                    image_handler.write(img_data)
+            time.sleep(.05)
+                
+    
+    
+    
+    '''
     with open('data/json/marketable.json') as f:
         d = json.load(f)
         for i in d:
@@ -39,7 +56,7 @@ def get_velocity_data():
                 json_obj = json.dumps(r.json(), indent=4)
                 out.write(json_obj)
             time.sleep(.05)
-    
+    '''
     
     '''
     items_list = []
