@@ -4,17 +4,13 @@
     <tr>
         <th></th>
         <th>Name</th>
-        <th>Highest Total Price</th>
-        <th>Highest Total Price Location</th>
-        <th>Lowest Total Price</th>
-        <th>Lowest Total Price Location</th>
+        <th>Region Delta</th>
+        <th>DC Delta</th>
     </tr>
     {% for item in item_list %}
     <tr> 
         <td><img src={% static item.icon_file %} alt="{{ item.name }}" title="{{ item.name }}" width="80" height="80"></td>
         <td>{{ item.name }}</td>
-        <td></td>
-        <td></td>
         <td></td>
         <td></td>
     </tr>

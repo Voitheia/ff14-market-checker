@@ -33,9 +33,7 @@ class Market_Data(models.Model):
     total = models.IntegerField(null=True)
     tax = models.IntegerField(null=True)
     regular_sale_velocity = models.DecimalField(null=True, decimal_places=2, max_digits=15)
-    current_average_price = models.DecimalField(null=True, decimal_places=2, max_digits=15)
-    average_price = models.DecimalField(null=True, decimal_places=2, max_digits=15)
-    min_price = models.IntegerField(null=True)
+    units_sold = models.IntegerField(null=True)
     
     def __str__(self):
         return f'{self.item.name}({self.world.name})'
