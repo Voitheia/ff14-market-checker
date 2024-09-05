@@ -1,0 +1,18 @@
+<script src="https://unpkg.com/htmx.org@2.0.2"></script>
+
+<section class="container" id="main-content" hx-get="/calc_item_stats" hx-trigger="{{hx_trigger}}">
+    <h3>Calculating item stats</h3>
+    <div id="element1">
+        <label for="file">Item stats calculation progress:</label>
+        <progress id="file" max="{{total_items}}" value="{{num_items_calculated}}">{{stats_percent_complete}}%</progress>
+    </div>
+    <div id="element2">
+        <p>{{num_items_calculated}}/{{total_items}} compelted, {{stats_percent_complete}}% done</p>
+    </div>
+    <br/>
+    {% if calculating_stats %}
+    <p>This page should automatically redirect you upon completion.</p>
+    {% else %}
+    <p>If you are not automatically redirected, click <a href="/">this link.</a></p>
+    {% endif %}
+</section>

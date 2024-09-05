@@ -10,9 +10,9 @@ it also seems like the three older NA dcs tend to be quite a lot less expensive 
 
 
 calculate DC delta and region delta
+calculate average sale velocity
 
-
-
+pulling market data is now a background task, but how do i know when it is complete except for looking at the console?
 
 
 

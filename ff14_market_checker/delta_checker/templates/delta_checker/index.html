@@ -1,18 +1,49 @@
 {% load static %}
+<style>
+    table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+    #element1 {float:left;margin-right:10px;}
+    #element2 {float:left;} 
+</style>
 
+<h1>Market data</h1>
+<div id="element1">
+    <a href="/build_market_data">
+        <button>Build Market Data</button>
+    </a>
+</div>
+<div id="element2">
+    <a href="/calc_item_stats">
+        <button>Calculate Item Stats</button>
+    </a>
+</div>
+<br/>
+<br/>
 <table>
     <tr>
         <th></th>
         <th>Name</th>
-        <th>Region Delta</th>
-        <th>DC Delta</th>
+        <th>Average Velocity</th>
+        <th>Region Delta - PPU</th>
+        <th>DC Delta - PPU</th>
     </tr>
     {% for item in item_list %}
     <tr> 
         <td><img src={% static item.icon_file %} alt="{{ item.name }}" title="{{ item.name }}" width="80" height="80"></td>
         <td>{{ item.name }}</td>
-        <td></td>
-        <td></td>
+        <td>{{ item.average_sale_velocity }}</td>
+        <td>
+            <p>{{ item.region_delta }}</p>
+            <p>Highest PPU is on {{ item.region_high_world.name }}</p>
+            <p>Lowest PPU is on {{ item.region_low_world.name }}</p>
+        </td>
+        <td>
+            <p>{{ item.dc_delta }}</p>
+            <p>Highest PPU is on {{ item.dc_high_world.name }}</p>
+            <p>Lowest PPU is on {{ item.dc_low_world.name }}</p>
+        </td>
     </tr>
     {% endfor %}
 </table>

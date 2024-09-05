@@ -1,0 +1,26 @@
+<script src="https://unpkg.com/htmx.org@2.0.2"></script>
+
+<section class="container" id="main-content" hx-get="/build_market_data" hx-trigger="{{hx_trigger}}">
+    <h3>Retrieving market data</h3>
+    <div id="element1">
+        <label for="file">Request progress:</label>
+        <progress id="file" max="{{req_queue_total_size}}" value="{{req_queue_progress}}">{{req_percent_complete}}%</progress>
+    </div>
+    <div id="element2">
+        <p>{{req_queue_progress}}/{{req_queue_total_size}} compelted, {{req_percent_complete}}% done</p>
+    </div>
+    <br/>
+    <div id="element1">
+        <label for="file">Data storage progress:</label>
+        <progress id="file" max="{{data_queue_total_size}}" value="{{data_queue_progress}}">{{data_percent_complete}}%</progress>
+    </div>
+    <div id="element2">
+        <p>{{data_queue_progress}}/{{data_queue_total_size}} compelted, {{data_percent_complete}}% done</p>
+    </div>
+    <br/>
+    {% if getting_data %}
+    <p>This page should automatically redirect you upon completion.</p>
+    {% else %}
+    <p>If you are not automatically redirected, click <a href="/">this link.</a></p>
+    {% endif %}
+</section>
