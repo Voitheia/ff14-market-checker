@@ -5,7 +5,7 @@
     "tasks": [
         {
             "type": "austin",
-            "file": "manage.py",
+            "file": "ff14_market_checker\\manage.py",
             "args": ["runserver"],
             "label": "Profile runserver",
         }

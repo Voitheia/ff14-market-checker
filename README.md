@@ -30,7 +30,18 @@ have icon and item name at top of page above table
 ### table
 
 
+### commands
 
+move to dir with main django script
+- `cd .\ff14_market_checker\`
+stage changes to the database model
+- `python .\manage.py makemigrations`
+push changes to the database model
+- `python .\manage.py migrage`
+run the django server
+- `python .\manage.py runserver`
+run the django server with the profiler and output to file
+- `austin -s python .\manage.py runserver > ../sample.austin`
 
 
 ### References

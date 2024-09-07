@@ -1,0 +1,340 @@
+{
+    "AdditionalData": 0,
+    "Adjective": 0,
+    "AetherialReduce": 0,
+    "AlwaysCollectable": 0,
+    "Article": 0,
+    "BaseParam0": null,
+    "BaseParam0Target": "BaseParam",
+    "BaseParam0TargetID": 0,
+    "BaseParam1": null,
+    "BaseParam1Target": "BaseParam",
+    "BaseParam1TargetID": 0,
+    "BaseParam2": null,
+    "BaseParam2Target": "BaseParam",
+    "BaseParam2TargetID": 0,
+    "BaseParam3": null,
+    "BaseParam3Target": "BaseParam",
+    "BaseParam3TargetID": 0,
+    "BaseParam4": null,
+    "BaseParam4Target": "BaseParam",
+    "BaseParam4TargetID": 0,
+    "BaseParam5": null,
+    "BaseParam5Target": "BaseParam",
+    "BaseParam5TargetID": 0,
+    "BaseParamModifier": 0,
+    "BaseParamSpecial0": null,
+    "BaseParamSpecial0Target": "BaseParam",
+    "BaseParamSpecial0TargetID": 0,
+    "BaseParamSpecial1": null,
+    "BaseParamSpecial1Target": "BaseParam",
+    "BaseParamSpecial1TargetID": 0,
+    "BaseParamSpecial2": null,
+    "BaseParamSpecial2Target": "BaseParam",
+    "BaseParamSpecial2TargetID": 0,
+    "BaseParamSpecial3": null,
+    "BaseParamSpecial3Target": "BaseParam",
+    "BaseParamSpecial3TargetID": 0,
+    "BaseParamSpecial4": null,
+    "BaseParamSpecial4Target": "BaseParam",
+    "BaseParamSpecial4TargetID": 0,
+    "BaseParamSpecial5": null,
+    "BaseParamSpecial5Target": "BaseParam",
+    "BaseParamSpecial5TargetID": 0,
+    "BaseParamValue0": 0,
+    "BaseParamValue1": 0,
+    "BaseParamValue2": 0,
+    "BaseParamValue3": 0,
+    "BaseParamValue4": 0,
+    "BaseParamValue5": 0,
+    "BaseParamValueSpecial0": 0,
+    "BaseParamValueSpecial1": 0,
+    "BaseParamValueSpecial2": 0,
+    "BaseParamValueSpecial3": 0,
+    "BaseParamValueSpecial4": 0,
+    "BaseParamValueSpecial5": 0,
+    "Block": 0,
+    "BlockRate": 0,
+    "Bonuses": {
+        "DirectHitRate": {
+            "ID": 22,
+            "Max": 40,
+            "MaxHQ": 50,
+            "Relative": true,
+            "Value": 8,
+            "ValueHQ": 10
+        },
+        "Vitality": {
+            "ID": 3,
+            "Max": 43,
+            "MaxHQ": 54,
+            "Relative": true,
+            "Value": 8,
+            "ValueHQ": 10
+        }
+    },
+    "CanBeHq": 1,
+    "CastTimeS": 0,
+    "ClassJobCategory": null,
+    "ClassJobCategoryTarget": "ClassJobCategory",
+    "ClassJobCategoryTargetID": 0,
+    "ClassJobRepair": null,
+    "ClassJobRepairTarget": "ClassJob",
+    "ClassJobRepairTargetID": 0,
+    "ClassJobUse": null,
+    "ClassJobUseTarget": "ClassJob",
+    "ClassJobUseTargetID": 0,
+    "CooldownS": 0,
+    "DamageMag": 0,
+    "DamagePhys": 0,
+    "DefenseMag": 0,
+    "DefensePhys": 0,
+    "DelayMs": 0,
+    "Description": "The succulent tenderloin of an island rail, seared to savory perfection and garnished with garlic and rock salt.\n\n\n\n<span style=\"color:#00cc22;\">EXP Bonus:</span> +3% <span style=\"color:#00cc22;\">Duration:</span> 30m\n\n(Duration can be extended to 60m by consuming multiple servings)",
+    "DescriptionJSON": [
+        "The succulent tenderloin of an island rail, seared to savory perfection and garnished with garlic and rock salt.\n\n\n\n<span style=\"color:#00cc22;\">EXP Bonus:</span> +3% <span style=\"color:#00cc22;\">Duration:</span> 30m\n\n(Duration can be extended to 60m by consuming multiple servings)"
+    ],
+    "DescriptionJSON_cn": null,
+    "DescriptionJSON_de": [
+        "W\u00fcrzig gegrillt und wunderbar saftig ist jeder Biss der Inselrallenbrust ein wahrer Genuss.\n\nErh\u00f6ht die Routine im Kampf, bei der Synthese und beim Sammeln.\n\nRoutine-Bonus +3%\n\nDauer: 30 Minuten\n\n(Kann durch wiederholten Verzehr auf bis zu 60 Minuten verl\u00e4ngert werden.)"
+    ],
+    "DescriptionJSON_en": [
+        "The succulent tenderloin of an island rail, seared to savory perfection and garnished with garlic and rock salt.\n\n\n\n<span style=\"color:#00cc22;\">EXP Bonus:</span> +3% <span style=\"color:#00cc22;\">Duration:</span> 30m\n\n(Duration can be extended to 60m by consuming multiple servings)"
+    ],
+    "DescriptionJSON_fr": [
+        "Un filet de r\u00e2le cuit sur le grill.\n\nPoints d'exp\u00e9rience gagn\u00e9s +3% (bonus appliqu\u00e9 aux \u00e9liminations d'ennemis, aux synth\u00e8ses et aux r\u00e9coltes)\n\nDur\u00e9e d'effet: 30 minutes (cumulable jusqu'\u00e0 60 minutes)"
+    ],
+    "DescriptionJSON_ja": [
+        "\u30a2\u30a4\u30e9\u30f3\u30c9\u30fb\u30ec\u30a4\u30eb\u306e\u7b39\u8eab\u306e\u7db2\u713c\u304d\n\n\u6575\u8a0e\u4f10\u30fb\u88fd\u4f5c\u30fb\u63a1\u96c6\u6642\u306e\u7d4c\u9a13\u5024\u7372\u5f97\u91cf\u304c\u4e0a\u6607\u3059\u308b\n\n\u7d4c\u9a13\u5024\u7372\u5f97\u91cf +3%\n\n\u52b9\u679c\u6642\u9593 30:00 [\u6700\u59272\u500d\u307e\u3067\u52b9\u679c\u6642\u9593\u306e\u7d99\u304e\u8db3\u3057\u53ef\u80fd]"
+    ],
+    "DescriptionJSON_kr": null,
+    "Description_cn": null,
+    "Description_de": "W\u00fcrzig gegrillt und wunderbar saftig ist jeder Biss der Inselrallenbrust ein wahrer Genuss.\n\nErh\u00f6ht die Routine im Kampf, bei der Synthese und beim Sammeln.\n\nRoutine-Bonus +3%\n\nDauer: 30 Minuten\n\n(Kann durch wiederholten Verzehr auf bis zu 60 Minuten verl\u00e4ngert werden.)",
+    "Description_en": "The succulent tenderloin of an island rail, seared to savory perfection and garnished with garlic and rock salt.\n\n\n\n<span style=\"color:#00cc22;\">EXP Bonus:</span> +3% <span style=\"color:#00cc22;\">Duration:</span> 30m\n\n(Duration can be extended to 60m by consuming multiple servings)",
+    "Description_fr": "Un filet de r\u00e2le cuit sur le grill.\n\nPoints d'exp\u00e9rience gagn\u00e9s +3% (bonus appliqu\u00e9 aux \u00e9liminations d'ennemis, aux synth\u00e8ses et aux r\u00e9coltes)\n\nDur\u00e9e d'effet: 30 minutes (cumulable jusqu'\u00e0 60 minutes)",
+    "Description_ja": "\u30a2\u30a4\u30e9\u30f3\u30c9\u30fb\u30ec\u30a4\u30eb\u306e\u7b39\u8eab\u306e\u7db2\u713c\u304d\n\n\u6575\u8a0e\u4f10\u30fb\u88fd\u4f5c\u30fb\u63a1\u96c6\u6642\u306e\u7d4c\u9a13\u5024\u7372\u5f97\u91cf\u304c\u4e0a\u6607\u3059\u308b\n\n\u7d4c\u9a13\u5024\u7372\u5f97\u91cf +3%\n\n\u52b9\u679c\u6642\u9593 30:00 [\u6700\u59272\u500d\u307e\u3067\u52b9\u679c\u6642\u9593\u306e\u7d99\u304e\u8db3\u3057\u53ef\u80fd]",
+    "Description_kr": null,
+    "Desynth": 0,
+    "DyeCount": 0,
+    "EquipRestriction": 0,
+    "EquipSlotCategory": null,
+    "EquipSlotCategoryTarget": "EquipSlotCategory",
+    "EquipSlotCategoryTargetID": 0,
+    "FilterGroup": 5,
+    "GameContentLinks": {
+        "CollectablesShopItem": {
+            "Item": [
+                "22.53",
+                22
+            ]
+        },
+        "CraftLeve": {
+            "Item0": [
+                918491
+            ]
+        },
+        "GilShopItem": {
+            "Item": [
+                "262986.0"
+            ]
+        },
+        "MasterpieceSupplyDuty": {
+            "RequiredItem0": [
+                232
+            ]
+        },
+        "Quest": {
+            "ItemReward0": [
+                68916
+            ],
+            "ItemReward00": [
+                68916
+            ],
+            "ItemReward10": [
+                68847,
+                68910,
+                68914
+            ],
+            "OptionalItemReward0": [
+                68847,
+                68910,
+                68914
+            ]
+        },
+        "Recipe": {
+            "ItemResult": [
+                3883
+            ]
+        }
+    },
+    "GamePatch": {
+        "Banner": "https://img.finalfantasyxiv.com/lds/promo/h/M/jmK4Q5CcFnBD1FfV90aw1zeUG8.png",
+        "ExName": "Shadowbringers",
+        "ExVersion": 3,
+        "ID": 58,
+        "IsExpansion": true,
+        "Name": "Patch 5.0: ShadowBringers",
+        "Name_cn": "Patch 5.0: ShadowBringers",
+        "Name_de": "Patch 5.0: ShadowBringers",
+        "Name_en": "Patch 5.0: ShadowBringers",
+        "Name_fr": "Patch 5.0: ShadowBringers",
+        "Name_ja": "Patch 5.0: ShadowBringers",
+        "Name_kr": "Patch 5.0: ShadowBringers",
+        "PatchNotes": "",
+        "PatchNotes_de": "",
+        "PatchNotes_en": "",
+        "PatchNotes_fr": "",
+        "PatchNotes_ja": "",
+        "ReleaseDate": 1561712400,
+        "Url": "/patch+5.0",
+        "Version": "5.0"
+    },
+    "GrandCompany": null,
+    "GrandCompanyTarget": "GrandCompany",
+    "GrandCompanyTargetID": 0,
+    "ID": 27853,
+    "Icon": "/i/024000/024352.png",
+    "IconHD": "/i/024000/024352_hr1.png",
+    "IconID": 24352,
+    "IsAdvancedMeldingPermitted": 0,
+    "IsCollectable": 0,
+    "IsCrestWorthy": 0,
+    "IsGlamourous": 0,
+    "IsIndisposable": 0,
+    "IsPvP": 0,
+    "IsUnique": 0,
+    "IsUntradable": 0,
+    "ItemAction": {
+        "CondBattle": 1,
+        "CondLv": 0,
+        "CondPVP": 1,
+        "CondPVPOnly": 0,
+        "Data0": 48,
+        "Data1": 458,
+        "Data2": 1800,
+        "Data3": 0,
+        "Data4": 0,
+        "Data5": 0,
+        "Data6": 0,
+        "Data7": 0,
+        "Data8": 0,
+        "DataHQ0": 48,
+        "DataHQ1": 458,
+        "DataHQ2": 1800,
+        "DataHQ3": 0,
+        "DataHQ4": 0,
+        "DataHQ5": 0,
+        "DataHQ6": 0,
+        "DataHQ7": 0,
+        "DataHQ8": 0,
+        "GameContentLinks": null,
+        "ID": 2014,
+        "Type": 844,
+        "Url": "/ItemAction/2014"
+    },
+    "ItemActionTarget": "ItemAction",
+    "ItemActionTargetID": 2014,
+    "ItemGlamour": null,
+    "ItemGlamourTarget": "Item",
+    "ItemGlamourTargetID": 0,
+    "ItemKind": {
+        "ID": 5,
+        "Name": "Medicines & Meals",
+        "Name_cn": "",
+        "Name_de": "Arznei/Gerichte",
+        "Name_en": "Medicines & Meals",
+        "Name_fr": "Consommables",
+        "Name_ja": "\u85ac\u54c1\u30fb\u8abf\u7406\u54c1",
+        "Name_kr": ""
+    },
+    "ItemRepair": null,
+    "ItemRepairTarget": "ItemRepairResource",
+    "ItemRepairTargetID": 0,
+    "ItemSearchCategory": {
+        "Category": 3,
+        "ClassJob": null,
+        "ClassJobTarget": "ClassJob",
+        "ClassJobTargetID": 0,
+        "ID": 45,
+        "Icon": "/i/060000/060146.png",
+        "IconHD": "/i/060000/060146_hr1.png",
+        "IconID": 60146,
+        "Name": "Meals",
+        "Name_de": "Gericht",
+        "Name_en": "Meals",
+        "Name_fr": "Plat ou boisson",
+        "Name_ja": "\u8abf\u7406\u54c1",
+        "Order": 2
+    },
+    "ItemSearchCategoryTarget": "ItemSearchCategory",
+    "ItemSearchCategoryTargetID": 45,
+    "ItemSeries": null,
+    "ItemSeriesTarget": "ItemSeries",
+    "ItemSeriesTargetID": 0,
+    "ItemSortCategory": {
+        "ID": 7,
+        "Param": 11
+    },
+    "ItemSortCategoryTarget": "ItemSortCategory",
+    "ItemSortCategoryTargetID": 7,
+    "ItemSpecialBonus": null,
+    "ItemSpecialBonusParam": 0,
+    "ItemSpecialBonusTarget": "ItemSpecialBonus",
+    "ItemSpecialBonusTargetID": 0,
+    "ItemUICategory": {
+        "ID": 46,
+        "Icon": "/i/060000/060146.png",
+        "IconHD": "/i/060000/060146_hr1.png",
+        "IconID": 60146,
+        "Name": "Meal",
+        "Name_de": "Gericht",
+        "Name_en": "Meal",
+        "Name_fr": "Plat ou boisson",
+        "Name_ja": "\u8abf\u7406\u54c1",
+        "OrderMajor": 5,
+        "OrderMinor": 1
+    },
+    "ItemUICategoryTarget": "ItemUICategory",
+    "ItemUICategoryTargetID": 46,
+    "LevelEquip": 1,
+    "LevelItem": 390,
+    "Lot": 0,
+    "Materia": null,
+    "MateriaSlotCount": 0,
+    "MaterializeType": 0,
+    "ModelMain": "9901, 5, 1, 0",
+    "ModelSub": "0, 0, 0, 0",
+    "Name": "Grilled Rail",
+    "Name_de": "Gegrillte Ralle",
+    "Name_en": "Grilled Rail",
+    "Name_fr": "Tranche de r\u00e2le grill\u00e9e",
+    "Name_ja": "\u30ec\u30a4\u30eb\u306e\u30b0\u30ea\u30eb",
+    "Patch": 58,
+    "Plural": "servings of grilled rail",
+    "Plural_de": "Portionen[p] gegrillter Ralle",
+    "Plural_en": "servings of grilled rail",
+    "Plural_fr": "tranches de r\u00e2le grill\u00e9es",
+    "Plural_ja": "",
+    "PossessivePronoun": 0,
+    "PriceLow": 27,
+    "PriceMid": 3359,
+    "Pronoun": 0,
+    "Rarity": 1,
+    "Recipes": [
+        {
+            "ClassJobID": 15,
+            "ID": 3883,
+            "Level": 71
+        }
+    ],
+    "RequiredPvpRank": 0,
+    "Singular": "serving of grilled rail",
+    "Singular_de": "Portion[p] gegrillter Ralle",
+    "Singular_en": "serving of grilled rail",
+    "Singular_fr": "tranche de r\u00e2le grill\u00e9e",
+    "Singular_ja": "\u30ec\u30a4\u30eb\u306e\u30b0\u30ea\u30eb",
+    "StackSize": 999,
+    "StartsWithVowel": 0,
+    "SubStatCategory": 0,
+    "Url": "/Item/27853"
+}
