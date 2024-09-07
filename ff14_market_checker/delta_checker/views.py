@@ -1,3 +1,4 @@
+import decimal
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
@@ -12,53 +13,11 @@ from datetime import datetime, timedelta, timezone
 from tqdm.auto import tqdm
 from django.db import transaction
 import pytz
+import math
 
-'''
-def make_market_data_request(w, i):
-    uri = f'https://universalis.app/api/v2/{w}/{i}?listings=1&entries=250&hq=false&fields=items.listings.pricePerUnit%2Citems.listings.quantity%2Citems.listings.total%2Citems.listings.tax%2Citems.regularSaleVelocity%2Citems.unitsSold%2Citems.worldName'
-    response = requests.get(uri)
-    if not response.status_code == 200:
-        time.sleep(.05)
-        make_market_data_request(w, i)
-        return
-    
-    result = response.json()["items"]
-    for r in data:
-        item = Item.objects.get(pk=int(r))
-        world = World.objects.get(name=w)
-        listings = None
-        if result[r]['listings']:
-            listings = result[r]['listings'][0]
-        price_per_unit = listings['pricePerUnit'] if listings else 0
-        quantity = listings['quantity'] if listings else 0
-        total = listings['total'] if listings else 0
-        tax = listings['tax'] if listings else 0
-        regular_sale_velocity = result[r]['regularSaleVelocity']
-        units_sold = result[r]['unitsSold']
-        data = Market_Data(item=item,
-                            world=world,
-                            price_per_unit=price_per_unit,
-                            quantity=quantity,
-                            total=total,
-                            tax=tax,
-                            regular_sale_velocity=regular_sale_velocity,
-                            units_sold=units_sold)
-    for r in result:
-        listings = None
-        if result[r]['listings']:
-            listings = result[r]['listings'][0]
-        data = Market_Data(item =                   Item.objects.get(pk=int(r)),
-                           world =                  result[r]['worldName'],
-                           price_per_unit =         listings['pricePerUnit'] if listings else 0,
-                           quantity =               listings['quantity'] if listings else 0,
-                           total =                  listings['total'] if listings else 0,
-                           tax =                    listings['tax'] if listings else 0,
-                           regular_sale_velocity =  result[r]['regularSaleVelocity'],
-                           units_sold =             result[r]['unitsSold'])
-        data.save()
-        print(data)
-    time.sleep(.05)
-'''
+headers = {'User-Agent': 'delta_checker'}
+
+num_history_entries = 100
 
 data_retrieved = False
 getting_data = False
@@ -70,8 +29,6 @@ req_queue_progress = 0
 data_queue_progress_lock = threading.Lock()
 data_queue_total_size = 0
 data_queue_progress = 0
-
-
 
 def parse_and_store_data(data_queue, event_start, event_stop, event_done):
     while not event_start.is_set():
@@ -85,10 +42,31 @@ def parse_and_store_data(data_queue, event_start, event_stop, event_done):
         entry = data_queue.get() # tuple of (str, dict)
         r = entry[0]
         result = entry[1]
+        
+        # get num transactions per day avg
+        avg_daily_transactions = 0
+        if result['recentHistory']:
+            num_history_entries = len(result['recentHistory'])
+            
+            # attempt to avoid low volume items by only giving an
+            # avg_daily_transaction to items that have 50+ history entries
+            if num_history_entries >= 50:
+                last_hist = result['recentHistory'][-1]
+                last_hist_time = last_hist['timestamp']
+                
+                # make datetime.now(timezone.utc) compatible with the history timestamp
+                now = datetime.fromtimestamp(round(datetime.now(timezone.utc).replace(microsecond=0).timestamp()))
+                past = datetime.fromtimestamp(last_hist_time)
+                timespan = now - past
+                try:
+                    avg_daily_transactions = (num_history_entries * 86400)/timespan.total_seconds()
+                except:
+                    avg_daily_transactions = 0
 
         listings = None
         if result['listings']:
             listings = result['listings'][0]
+        
         data_list.append(Market_Data(item = Item.objects.get(pk=int(r)),
                         world = World.objects.get(name=result['worldName']),
                         price_per_unit = listings['pricePerUnit'] if listings else 0,
@@ -96,6 +74,7 @@ def parse_and_store_data(data_queue, event_start, event_stop, event_done):
                         total = listings['total'] if listings else 0,
                         tax = listings['tax'] if listings else 0,
                         regular_sale_velocity = result['regularSaleVelocity'],
+                        average_daily_transactions = round(avg_daily_transactions, 2),
                         units_sold = result['unitsSold']))
         
         data_list_len = len(data_list)
@@ -110,23 +89,6 @@ def parse_and_store_data(data_queue, event_start, event_stop, event_done):
             with data_queue_progress_lock:
                 data_queue_progress+=data_list_len
         
-        '''
-        data = Market_Data(item = Item.objects.get(pk=int(r)),
-                        world = World.objects.get(name=result['worldName']),
-                        price_per_unit = listings['pricePerUnit'] if listings else 0,
-                        quantity = listings['quantity'] if listings else 0,
-                        total = listings['total'] if listings else 0,
-                        tax = listings['tax'] if listings else 0,
-                        regular_sale_velocity = result['regularSaleVelocity'],
-                        units_sold = result['unitsSold'])
-        with transaction.atomic():
-            data.save()
-        
-        
-        
-        with data_queue_progress_lock:
-            data_queue_progress+=1
-        '''
     if not event_done.is_set():
         event_done.set()
 
@@ -137,7 +99,6 @@ def queue_progress_bar(uri_queue, data_queue, event_done):
     req_total_progress = 0
     req_last_progress = 0
     
-    #global data_queue_total_size
     global data_queue_progress
 
     while not event_done.is_set():
@@ -146,17 +107,10 @@ def queue_progress_bar(uri_queue, data_queue, event_done):
         req_progress = req_total_progress - req_last_progress
         req_queue_progress += req_progress
         req_last_progress = req_total_progress
-        
-        '''
-        local_data_queue_progress = 0
-        with data_queue_progress_lock:
-            local_data_queue_progress = data_queue_progress
-        data_queue_total_size = data_queue.qsize() + local_data_queue_progress
-        '''
-        #data_queue_total_size = data_queue.qsize() + data_queue_progress
 
 def make_api_req(uri):
     global last_req_time
+    global headers
     with api_req_lock:
         utc_now = datetime.now(timezone.utc)
         delta = utc_now - last_req_time
@@ -164,7 +118,7 @@ def make_api_req(uri):
             wait_time = (min_req_wait_microsec - delta.microseconds) / 1000000
             time.sleep(wait_time)
         last_req_time = datetime.now(timezone.utc)
-    return requests.get(uri)
+    return requests.get(uri, headers=headers)
 
 def get_api_data(uri_queue, data_queue, event_start, event_stop):
     while not uri_queue.empty():
@@ -208,6 +162,7 @@ def get_data():
     global getting_data
     global req_queue_total_size
     global data_queue_total_size
+    global num_history_entries
     
     # clear market data
     Market_Data.objects.all().delete()
@@ -226,7 +181,7 @@ def get_data():
     
     for w in world_list:
         for i in item_str_list:
-            uri = f'https://universalis.app/api/v2/{w.name}/{i}?listings=1&entries=250&hq=false&fields=items.listings.pricePerUnit%2Citems.listings.quantity%2Citems.listings.total%2Citems.listings.tax%2Citems.regularSaleVelocity%2Citems.unitsSold%2Citems.worldName'
+            uri = f'https://universalis.app/api/v2/{w.name}/{i}?listings=1&entries={num_history_entries}&hq=false&fields=items.listings.pricePerUnit%2Citems.listings.quantity%2Citems.listings.total%2Citems.listings.tax%2Citems.regularSaleVelocity%2Citems.unitsSold%2Citems.worldName%2Citems.recentHistory'
             uri_queue.put(uri)
             req_queue_total_size += 1
     
@@ -262,6 +217,64 @@ calculating_stats = False
 item_stats_calculated = False
 total_items = 0
 num_items_calculated = 0
+calc_stats_lock = threading.Lock()
+
+def update_items_calcd(item_queue):
+    global num_items_calculated
+    global total_items
+    while not item_queue.empty():
+        num_items_calculated = (item_queue.qsize() - total_items) * -1
+        time.sleep(1)
+    
+def calculate_item_stats_worker(item_queue):    
+    while not item_queue.empty():
+        i = item_queue.get()
+        
+        market_data = Market_Data.objects.filter(item=i)
+        sale_velocity = 0
+        daily_transactions = 0
+        market_data_str = ""
+        region_lowest = None
+        dc_lowest = None
+        kraken = None
+        
+        for m in market_data:
+            sale_velocity += m.regular_sale_velocity
+            daily_transactions += m.average_daily_transactions
+            market_data_str += str(m.id) + ','
+            
+            # check if in region
+            if m.world.dc.region == "North-America":
+                if region_lowest == None or m.price_per_unit < region_lowest.price_per_unit:
+                    region_lowest = m
+            
+            # check if in dc
+            if m.world.dc.id == 4:
+                if dc_lowest == None or m.price_per_unit < dc_lowest.price_per_unit:
+                    dc_lowest = m
+        
+            if m.world.id == 409:
+                kraken = m
+        
+        num_market_data = len(market_data)
+        
+        r_delta = kraken.price_per_unit - region_lowest.price_per_unit
+        d_delta = kraken.price_per_unit - dc_lowest.price_per_unit
+        
+        adt = daily_transactions/num_market_data if not num_market_data == 0 else 0
+        
+        w = adt * adt * d_delta
+        
+        Item.objects.filter(id=i.id).update(
+            average_sale_velocity = sale_velocity/num_market_data if not num_market_data == 0 else 0,
+            average_daily_transactions = adt,
+            market_data_list = market_data_str[:-1],
+            region_delta = r_delta,
+            dc_delta = d_delta,
+            region_low_world = region_lowest.world,
+            dc_low_world = dc_lowest.world,
+            weight = w
+        )
 
 def calculate_item_stats():
     global calculating_stats
@@ -269,48 +282,19 @@ def calculate_item_stats():
     global total_items
     global num_items_calculated
     
+    item_queue = queue.Queue()
+    
     item_list = Item.objects.all()
     total_items = len(item_list)
     for i in item_list:
-        
-        market_data = Market_Data.objects.filter(item=i)
-        sale_velocity = 0
-        market_data_str = ""
-        region_lowest = None
-        region_highest = None
-        dc_lowest = None
-        dc_highest = None
-        
-        for m in market_data:
-            sale_velocity += m.regular_sale_velocity
-            market_data_str += str(m.id) + ','
-            
-            # check if in region
-            if m.world.dc.region == "North-America":
-                if region_lowest == None or m.price_per_unit < region_lowest.price_per_unit:
-                    region_lowest = m
-                if region_highest == None or m.price_per_unit > region_highest.price_per_unit:
-                    region_highest = m
-            
-            # check if in dc
-            if m.world.dc.id == 4:
-                if dc_lowest == None or m.price_per_unit < dc_lowest.price_per_unit:
-                    dc_lowest = m
-                if dc_highest == None or m.price_per_unit > dc_highest.price_per_unit:
-                    dc_highest = m
-        
-        Item.objects.filter(id=i.id).update(
-            average_sale_velocity = sale_velocity/len(market_data),
-            market_data_list = market_data_str[:-1],
-            region_delta = region_highest.price_per_unit - region_lowest.price_per_unit,
-            dc_delta = dc_highest.price_per_unit - dc_lowest.price_per_unit,
-            region_low_world = region_lowest.world,
-            region_high_world = region_highest.world,
-            dc_low_world = dc_lowest.world,
-            dc_high_world = dc_highest.world
-        )
-        
-        num_items_calculated += 1
+        item_queue.put(i)
+
+    with concurrent.futures.ThreadPoolExecutor(max_workers=5) as executor:
+        executor.submit(calculate_item_stats_worker, item_queue)
+        executor.submit(calculate_item_stats_worker, item_queue)
+        executor.submit(calculate_item_stats_worker, item_queue)
+        executor.submit(calculate_item_stats_worker, item_queue)
+        executor.submit(update_items_calcd, item_queue)
 
     item_stats_calculated = True
     calculating_stats = False
@@ -319,12 +303,17 @@ def calculate_item_stats():
 # views
 #
 def index(request):
-    item_list = Item.objects.all().order_by('-average_sale_velocity')[:100]
+    item_list = Item.objects.all().order_by('-weight')[:100]
     
     context = {
         "item_list": item_list,
     }
     return render(request, 'delta_checker/index.html', context)
+
+def reset_calc_item_stats(request=None):
+    global item_stats_calculated
+    item_stats_calculated = False
+    return calc_item_stats(request)
 
 def calc_item_stats(request=None):
     global calculating_stats
@@ -361,6 +350,11 @@ def calc_item_stats(request=None):
         return render(request, 'delta_checker/calc_item_stats.html', context)
     else:
         return index(request)
+
+def reset_build_market_data(request=None):
+    global data_retrieved
+    data_retrieved = False
+    return build_market_data(request)
 
 def build_market_data(request=None):
     global data_retrieved

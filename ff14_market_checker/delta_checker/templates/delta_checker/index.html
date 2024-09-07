@@ -10,12 +10,12 @@
 
 <h1>Market data</h1>
 <div id="element1">
-    <a href="/build_market_data">
+    <a href="/reset_build_market_data">
         <button>Build Market Data</button>
     </a>
 </div>
 <div id="element2">
-    <a href="/calc_item_stats">
+    <a href="/reset_calc_item_stats">
         <button>Calculate Item Stats</button>
     </a>
 </div>
@@ -25,25 +25,27 @@
     <tr>
         <th></th>
         <th>Name</th>
-        <th>Average Velocity</th>
-        <th>Region Delta - PPU</th>
+        <th>Avg Velocity</th>
+        <th>Avg Sales/Day</th>
+        <th>R Delta - PPU</th>
         <th>DC Delta - PPU</th>
+        <th>Weight (Avg S/D)*(DC Delta)</th>
     </tr>
     {% for item in item_list %}
     <tr> 
         <td><img src={% static item.icon_file %} alt="{{ item.name }}" title="{{ item.name }}" width="80" height="80"></td>
         <td>{{ item.name }}</td>
         <td>{{ item.average_sale_velocity }}</td>
+        <td>{{ item.average_daily_transactions }}</td>
         <td>
             <p>{{ item.region_delta }}</p>
-            <p>Highest PPU is on {{ item.region_high_world.name }}</p>
-            <p>Lowest PPU is on {{ item.region_low_world.name }}</p>
+            <p>Lowest on {{ item.region_low_world.name }}</p>
         </td>
         <td>
             <p>{{ item.dc_delta }}</p>
-            <p>Highest PPU is on {{ item.dc_high_world.name }}</p>
-            <p>Lowest PPU is on {{ item.dc_low_world.name }}</p>
+            <p>Lowest on {{ item.dc_low_world.name }}</p>
         </td>
+        <td>{{ item.weight }}</td>
     </tr>
     {% endfor %}
 </table>

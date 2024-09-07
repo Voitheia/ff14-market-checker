@@ -1,20 +1,16 @@
 ### TODO
-next thing to do would be to pick a certain amount of items, maybe the 100 highest velocity, and pull current market price data for those items for each of those items.
 
-i could pull price history to see what those items usually sell at.
+make whole row on main page clickable, sends you to item page?
 
-i need to get the delta between the lowest listed price within the dc and somewhere its listed high, and then whatever has those the highest should give me the best margins
+find a way to improve the weight calculation so it actually weighs average sales more
 
-it also seems like the three older NA dcs tend to be quite a lot less expensive than dynamis, so i might also want to compare price data across the whole region
+might need to tweak how database is organized so that data pulled from universalis is separate from statistics i calculate
 
+make configuration page so i can choose how things are compared, like to what world is the baseline?
 
+find and add some css or something to make the table not look like shit, and maybe make it user sortable
 
-calculate DC delta and region delta
-calculate average sale velocity
-
-pulling market data is now a background task, but how do i know when it is complete except for looking at the console?
-
-
+fix the bug where both the calculating pages will send you back to the index, but the url still looks like the previous page
 
 ## main page
 list of top 100 most interesting items on market, use `index.html` template
