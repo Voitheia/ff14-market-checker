@@ -15,6 +15,8 @@ from django.db import transaction
 import pytz
 import math
 from silk.profiling.profiler import silk_profile
+from django.db.models import Max
+from django.shortcuts import redirect
 
 headers = {'User-Agent': 'delta_checker'}
 
@@ -37,7 +39,7 @@ def parse_and_store_data(data_queue, event_start, event_stop, event_done):
         time.sleep(.25)
     
     global data_queue_progress
-    target_list_size = 1000
+    target_list_size = 100
     data_list = []
     
     while not data_queue.empty() or not event_stop.is_set():
@@ -224,24 +226,57 @@ calculating_stats = False
 item_stats_calculated = False
 total_items = 0
 num_items_calculated = 0
+num_weight_calculated = 0
 calc_stats_lock = threading.Lock()
 
 #@silk_profile(name='update_items_calcd')
-def update_items_calcd(item_queue):
+def update_items_calcd(item_queue, weight_queue):
     global num_items_calculated
+    global num_weight_calculated
     global total_items
+    
     while not item_queue.empty():
         num_items_calculated = (item_queue.qsize() - total_items) * -1
         time.sleep(1)
     
+    while not weight_queue.empty():
+        num_weight_calculated = (weight_queue.qsize() - total_items) * -1
+        time.sleep(1)
+    
+def calculate_weight_worker(weight_queue):
+    
+    # calculate max values for potential profit and average_daily_transactions
+    max_pprofit = Item.objects.aggregate(Max('potential_profit')).get('potential_profit__max')
+    max_adt = Item.objects.aggregate(Max('average_daily_transactions')).get('average_daily_transactions__max')
+    
+    item_list = []
+
+    while not weight_queue.empty():
+        i = weight_queue.get()
+        pprofit_percent = round(decimal.Decimal(i.potential_profit) / max_pprofit, 4) * 100
+        adt_percent = round(decimal.Decimal(i.average_daily_transactions) / max_adt, 4) * 100
+        
+        item_list.append(i)
+        item_list[-1].weight = pprofit_percent + adt_percent
+        
+        #Item.objects.filter(id=i.id).update(weight = pprofit_percent + adt_percent)
+        
+    if not item_list:
+        Item.objects.bulk_update(item_list, ['weight'])
+        
+
 #@silk_profile(name='calculate_item_stats_worker')
-def calculate_item_stats_worker(item_queue):    
+def calculate_item_stats_worker(item_queue, weight_queue, all_market_data):    
+    target_list_size = 100
+    item_list = []
+    
     while not item_queue.empty():
         i = item_queue.get()
         
-        market_data = Market_Data.objects.filter(item=i)
+        market_data = all_market_data.filter(item=i)
         sale_velocity = 0
         daily_transactions = 0
+        items_per_transaction = 0
         market_data_str = ""
         region_lowest = None
         dc_lowest = None
@@ -250,12 +285,11 @@ def calculate_item_stats_worker(item_queue):
         for m in market_data:
             sale_velocity += m.regular_sale_velocity
             daily_transactions += m.average_daily_transactions
+            items_per_transaction += m.units_sold
             market_data_str += str(m.id) + ','
             
-            # check if in region
-            if m.world.dc.region == "North-America":
-                if region_lowest == None or m.price_per_unit < region_lowest.price_per_unit:
-                    region_lowest = m
+            if region_lowest == None or m.price_per_unit < region_lowest.price_per_unit:
+                region_lowest = m
             
             # check if in dc
             if m.world.dc.id == 4:
@@ -271,48 +305,100 @@ def calculate_item_stats_worker(item_queue):
         d_delta = kraken.price_per_unit - dc_lowest.price_per_unit
         
         adt = daily_transactions/num_market_data if not num_market_data == 0 else 0
+        aipt = items_per_transaction/num_market_data if not num_market_data == 0 else 0
         
-        #w = adt * adt * d_delta
+        pprofit = d_delta * aipt
         
         '''
-        scrap weight
-            get a percent score
-                average daily transactions
-                dc delta
-            then get a score out of 200, and use that as weight
-        '''
-        
         Item.objects.filter(id=i.id).update(
             average_sale_velocity = sale_velocity/num_market_data if not num_market_data == 0 else 0,
             average_daily_transactions = adt,
+            average_items_per_transaction = aipt,
             market_data_list = market_data_str[:-1],
             region_delta = r_delta,
             dc_delta = d_delta,
             region_low_world = region_lowest.world,
             dc_low_world = dc_lowest.world,
-            weight = w
+            potential_profit = pprofit
         )
+        '''
+        
+        item_list.append(i)
+        item_list[-1].average_sale_velocity = sale_velocity/num_market_data if not num_market_data == 0 else 0
+        item_list[-1].average_daily_transactions = adt
+        item_list[-1].average_items_per_transaction = aipt
+        item_list[-1].market_data_list = market_data_str[:-1]
+        item_list[-1].region_delta = r_delta
+        item_list[-1].dc_delta = d_delta
+        item_list[-1].region_low_world = region_lowest.world
+        item_list[-1].dc_low_world = dc_lowest.world
+        item_list[-1].potential_profit = pprofit
+        
+        weight_queue.put(i)
+        '''
+        item_list_len = len(item_list)
+        if (item_list_len == target_list_size):
+            #Market_Data.objects.bulk_create(item_list, target_list_size)
+            Item.objects.bulk_update(item_list, ['average_sale_velocity',
+                                                 'average_daily_transactions',
+                                                 'average_items_per_transaction',
+                                                 'market_data_list',
+                                                 'region_delta',
+                                                 'dc_delta',
+                                                 'region_low_world',
+                                                 'dc_low_world',
+                                                 'potential_profit'
+                                                 ], target_list_size)
+            item_list.clear()
+        '''
+            
+    if not item_list:
+        Item.objects.bulk_update(item_list, ['average_sale_velocity',
+                                                 'average_daily_transactions',
+                                                 'average_items_per_transaction',
+                                                 'market_data_list',
+                                                 'region_delta',
+                                                 'dc_delta',
+                                                 'region_low_world',
+                                                 'dc_low_world',
+                                                 'potential_profit'
+                                                 ], target_list_size)
+        
 
 #@silk_profile(name='calculate_item_stats')
 def calculate_item_stats():
     global calculating_stats
     global item_stats_calculated
     global total_items
-    global num_items_calculated
     
     item_queue = queue.Queue()
+    weight_queue = queue.Queue()
     
     item_list = Item.objects.all()
     total_items = len(item_list)
     for i in item_list:
         item_queue.put(i)
+        
+    all_market_data = Market_Data.objects.all()
+    
+    t = threading.Thread(target=update_items_calcd, args=[item_queue, weight_queue])
+    t.setDaemon(True)
+    t.start()
 
-    with concurrent.futures.ThreadPoolExecutor(max_workers=5) as executor:
-        executor.submit(calculate_item_stats_worker, item_queue)
-        executor.submit(calculate_item_stats_worker, item_queue)
-        executor.submit(calculate_item_stats_worker, item_queue)
-        executor.submit(calculate_item_stats_worker, item_queue)
-        executor.submit(update_items_calcd, item_queue)
+    with concurrent.futures.ThreadPoolExecutor(max_workers=4) as executor:
+        executor.submit(calculate_item_stats_worker, item_queue, weight_queue, all_market_data)
+        executor.submit(calculate_item_stats_worker, item_queue, weight_queue, all_market_data)
+        executor.submit(calculate_item_stats_worker, item_queue, weight_queue, all_market_data)
+        executor.submit(calculate_item_stats_worker, item_queue, weight_queue, all_market_data)
+
+    
+    with concurrent.futures.ThreadPoolExecutor(max_workers=4) as executor:
+        executor.submit(calculate_weight_worker, weight_queue)
+        executor.submit(calculate_weight_worker, weight_queue)
+        executor.submit(calculate_weight_worker, weight_queue)
+        executor.submit(calculate_weight_worker, weight_queue)
+    
+    t.join()
 
     item_stats_calculated = True
     calculating_stats = False
@@ -341,6 +427,7 @@ def calc_item_stats(request=None):
     global item_stats_calculated
     global total_items
     global num_items_calculated
+    global num_weight_calculated
     
     if not item_stats_calculated:
         if not calculating_stats:
@@ -354,14 +441,22 @@ def calc_item_stats(request=None):
             stats_percent_complete = "0"
         else:
             stats_percent_complete = str(round((num_items_calculated * 100)/total_items))
+        
+        weight_percent_complete = ""
+        if total_items == 0:
+            weight_percent_complete = "0"
+        else:
+            weight_percent_complete = str(round((num_weight_calculated * 100)/total_items))
          
         hx_trigger = "every 1s" if calculating_stats else "once"
         
         context = {
             "calculating_stats": calculating_stats,
             "num_items_calculated": num_items_calculated,
+            "num_weight_calculated": num_weight_calculated,
             "total_items": total_items,
             "stats_percent_complete": stats_percent_complete,
+            "weight_percent_complete": weight_percent_complete,
             "hx_trigger": hx_trigger,
         }
         
@@ -370,7 +465,7 @@ def calc_item_stats(request=None):
         
         return render(request, 'delta_checker/calc_item_stats.html', context)
     else:
-        return index(request)
+        return redirect(index)
 
 #@silk_profile(name='reset_build_market_data')
 def reset_build_market_data(request=None):
@@ -426,4 +521,4 @@ def build_market_data(request=None):
         return render(request, 'delta_checker/build_market_data.html', context)
     
     else:
-        return index(request)
+        return redirect(index)

@@ -1,23 +1,15 @@
 ### TODO
 
-scrap weight
-    get a percent score
-        average daily transactions
-        dc delta
-    then get a score out of 200, and use that as weight
+think of way to make how market data is stored more efficient. do i just make a custom object for market data and attach a list of them to an item rather than having the market data in a separate table? is that more efficient?
+    i might've already done this with market_data_list?
 
-    1. Delta between lowest world and kraken
-    2. Average items sold per transaction
-    3. Average transactions per day
+i'm not sure what i did with the weight really did anything
+    i need to look into the data more to make sure its calculating correctly and its getting displayed correctly
 
-    Multiplying 1 and 2 should give lower delta but higher volume items more weight. Maybe call this potential profit?
-
-    Then rank items like I was thinking by converting potential profit and atd into percentages and then averaging them
-
-    Also list the lowest price in the main table 
+list the lowest price in the main table
+update main table to reflect weight changes 
 
 make whole row on main page clickable, sends you to the universalis page for that item
-
 
 might need to tweak how database is organized so that data pulled from universalis is separate from statistics i calculate
 

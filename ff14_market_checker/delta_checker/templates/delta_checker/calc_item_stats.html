@@ -10,6 +10,15 @@
         <p>{{num_items_calculated}}/{{total_items}} compelted, {{stats_percent_complete}}% done</p>
     </div>
     <br/>
+    <div id="element1">
+        <label for="file">Item weights calculation progress:</label>
+        <progress id="file" max="{{total_items}}" value="{{num_weight_calculated}}">{{weight_percent_complete}}%</progress>
+    </div>
+    <div id="element2">
+        <p>{{num_weight_calculated}}/{{total_items}} compelted, {{weight_percent_complete}}% done</p>
+        <p>Item stats calculation must be completed before calculating weight.</p>
+    </div>
+    <br/>
     {% if calculating_stats %}
     <p>This page should automatically redirect you upon completion.</p>
     {% else %}
