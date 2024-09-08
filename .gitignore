@@ -1,2 +1,3 @@
 venv
-ff14_market_checker\db.sqlite3
+ff14_market_checker/db.sqlite3
+*__pycache__
