@@ -1,8 +1,23 @@
 ### TODO
 
-make whole row on main page clickable, sends you to item page?
+scrap weight
+    get a percent score
+        average daily transactions
+        dc delta
+    then get a score out of 200, and use that as weight
 
-find a way to improve the weight calculation so it actually weighs average sales more
+    1. Delta between lowest world and kraken
+    2. Average items sold per transaction
+    3. Average transactions per day
+
+    Multiplying 1 and 2 should give lower delta but higher volume items more weight. Maybe call this potential profit?
+
+    Then rank items like I was thinking by converting potential profit and atd into percentages and then averaging them
+
+    Also list the lowest price in the main table 
+
+make whole row on main page clickable, sends you to the universalis page for that item
+
 
 might need to tweak how database is organized so that data pulled from universalis is separate from statistics i calculate
 

@@ -14,6 +14,7 @@ from tqdm.auto import tqdm
 from django.db import transaction
 import pytz
 import math
+from silk.profiling.profiler import silk_profile
 
 headers = {'User-Agent': 'delta_checker'}
 
@@ -30,6 +31,7 @@ data_queue_progress_lock = threading.Lock()
 data_queue_total_size = 0
 data_queue_progress = 0
 
+#@silk_profile(name='parse_and_store_data')
 def parse_and_store_data(data_queue, event_start, event_stop, event_done):
     while not event_start.is_set():
         time.sleep(.25)
@@ -92,6 +94,7 @@ def parse_and_store_data(data_queue, event_start, event_stop, event_done):
     if not event_done.is_set():
         event_done.set()
 
+#@silk_profile(name='queue_progress_bar')
 def queue_progress_bar(uri_queue, data_queue, event_done):
     global req_queue_total_size
     global req_queue_progress
@@ -108,6 +111,7 @@ def queue_progress_bar(uri_queue, data_queue, event_done):
         req_queue_progress += req_progress
         req_last_progress = req_total_progress
 
+#@silk_profile(name='make_api_req')
 def make_api_req(uri):
     global last_req_time
     global headers
@@ -120,6 +124,7 @@ def make_api_req(uri):
         last_req_time = datetime.now(timezone.utc)
     return requests.get(uri, headers=headers)
 
+#@silk_profile(name='get_api_data')
 def get_api_data(uri_queue, data_queue, event_start, event_stop):
     while not uri_queue.empty():
         uri = uri_queue.get()
@@ -137,6 +142,7 @@ def get_api_data(uri_queue, data_queue, event_start, event_stop):
     if not event_stop.is_set():
         event_stop.set()
 
+#@silk_profile(name='create_item_str_list')
 def create_item_str_list():
     item_str_list = []
     items = ""
@@ -157,6 +163,7 @@ def create_item_str_list():
     
     return item_str_list
 
+#@silk_profile(name='get_data')
 def get_data():
     global data_retrieved
     global getting_data
@@ -219,6 +226,7 @@ total_items = 0
 num_items_calculated = 0
 calc_stats_lock = threading.Lock()
 
+#@silk_profile(name='update_items_calcd')
 def update_items_calcd(item_queue):
     global num_items_calculated
     global total_items
@@ -226,6 +234,7 @@ def update_items_calcd(item_queue):
         num_items_calculated = (item_queue.qsize() - total_items) * -1
         time.sleep(1)
     
+#@silk_profile(name='calculate_item_stats_worker')
 def calculate_item_stats_worker(item_queue):    
     while not item_queue.empty():
         i = item_queue.get()
@@ -263,7 +272,15 @@ def calculate_item_stats_worker(item_queue):
         
         adt = daily_transactions/num_market_data if not num_market_data == 0 else 0
         
-        w = adt * adt * d_delta
+        #w = adt * adt * d_delta
+        
+        '''
+        scrap weight
+            get a percent score
+                average daily transactions
+                dc delta
+            then get a score out of 200, and use that as weight
+        '''
         
         Item.objects.filter(id=i.id).update(
             average_sale_velocity = sale_velocity/num_market_data if not num_market_data == 0 else 0,
@@ -276,6 +293,7 @@ def calculate_item_stats_worker(item_queue):
             weight = w
         )
 
+#@silk_profile(name='calculate_item_stats')
 def calculate_item_stats():
     global calculating_stats
     global item_stats_calculated
@@ -302,6 +320,7 @@ def calculate_item_stats():
 #
 # views
 #
+#@silk_profile(name='index')
 def index(request):
     item_list = Item.objects.all().order_by('-weight')[:100]
     
@@ -310,11 +329,13 @@ def index(request):
     }
     return render(request, 'delta_checker/index.html', context)
 
+#@silk_profile(name='reset_calc_item_stats')
 def reset_calc_item_stats(request=None):
     global item_stats_calculated
     item_stats_calculated = False
     return calc_item_stats(request)
 
+#@silk_profile(name='calc_item_stats')
 def calc_item_stats(request=None):
     global calculating_stats
     global item_stats_calculated
@@ -351,11 +372,13 @@ def calc_item_stats(request=None):
     else:
         return index(request)
 
+#@silk_profile(name='reset_build_market_data')
 def reset_build_market_data(request=None):
     global data_retrieved
     data_retrieved = False
     return build_market_data(request)
 
+#@silk_profile(name='build_market_data')
 def build_market_data(request=None):
     global data_retrieved
     global getting_data

@@ -42,6 +42,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'silk.middleware.SilkyMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -49,11 +50,12 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django_cprofile_middleware.middleware.ProfilerMiddleware',
-    'silk.middleware.SilkyMiddleware',
 ]
 
-DJANGO_CPROFILE_MIDDLEWARE_REQUIRE_STAFF = False
+SILKY_PYTHON_PROFILER = True
+SILKY_PYTHON_PROFILER_BINARY = True
+SILKY_PYTHON_PROFILER_RESULT_PATH = BASE_DIR / 'profiles'
+SILKY_PYTHON_PROFILER_EXTENDED_FILE_NAME = True
 
 ROOT_URLCONF = 'ff14_market_checker.urls'
 
