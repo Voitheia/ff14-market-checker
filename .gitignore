@@ -1,3 +1,5 @@
 venv
 ff14_market_checker/db.sqlite3
-*__pycache__
+ff14_market_checker/ff14_market_checker/__pycache__
+ff14_market_checker/delta_checker/__pycache__
+.vscode
