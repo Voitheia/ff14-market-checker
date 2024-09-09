@@ -1,0 +1,108 @@
+{% load static %}
+<!--
+<style>
+    table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+    #element1 {float:left;margin-right:10px;}
+    #element2 {float:left;} 
+</style>
+-->
+<style>
+    body {
+        justify-content: center;
+        margin-top: 20px;
+        color: #37559d;
+    }
+        
+    a {
+        color: #5165ff;
+    }
+        
+    table {
+        border-collapse: collapse;
+    }
+        
+    td {
+        border: 2px solid #ccd2ff;
+        position: relative;
+        border-collapse: collapse;
+        justify-content: center;
+    }
+        
+    tr:hover,
+    tr:focus-within {
+        background: #f2f3ff;
+        outline: none;
+    }
+        
+    td > a:first-child {
+        display: flex;
+        padding: 4px;
+        text-decoration: none;
+        color: inherit;
+        z-index: 0;
+        
+        &:focus {
+            outline: 0;
+        }
+    }
+
+    #element1 {float:left;margin-right:10px;}
+    #element2 {float:left;} 
+</style>
+
+<body>
+    <h1>Market data</h1>
+    <div id="element1">
+        <a href="/reset_build_market_data">
+            <button>Build Market Data</button>
+        </a>
+    </div>
+    <div id="element2">
+        <a href="/reset_calc_item_stats">
+            <button>Calculate Item Stats</button>
+        </a>
+    </div>
+    <br/>
+    <br/>
+</body>
+<table>
+    <tbody>
+        <tr>
+            <th></th>
+            <th>Name</th>
+            <th>Avg Velocity</th>
+            <th>Avg Sales/Day</th>
+            <!--<th>R Delta - PPU</th>-->
+            <th>DC Delta - PPU</th>
+            <th>Low World</th>
+            <th>Weighted</th>
+        </tr>
+        {% for i in item_list %}
+        <tr> 
+            <td><a target="_blank" rel="noopener noreferrer" href="https://universalis.app/market/{{ i.id }}" class="row-link"><img src={% static i.icon_file %} alt="{{ i.name }}" title="{{ i.name }}" width="80" height="80"></a></td>
+            <td><a target="_blank" rel="noopener noreferrer" href="https://universalis.app/market/{{ i.id }}" tabindex="-1" class="row-link">{{ i.name }}</a></td>
+            <td><a target="_blank" rel="noopener noreferrer" href="https://universalis.app/market/{{ i.id }}" tabindex="-1" class="row-link">{{ i.average_sale_velocity }}</a></td>
+            <td><a target="_blank" rel="noopener noreferrer" href="https://universalis.app/market/{{ i.id }}" tabindex="-1" class="row-link">{{ i.average_daily_transactions }}</a></td>
+            <!--
+            <td>
+                <a target="_blank" rel="noopener noreferrer" href="https://universalis.app/market/{{ i.id }}" tabindex="-1" class="row-link">
+                    <p>{{ i.region_delta }}</p>
+                    <p>Lowest on {{ i.region_low_world }}</p>
+                </a>
+            </td>
+            -->
+            <td>
+                <a target="_blank" rel="noopener noreferrer" href="https://universalis.app/market/{{ i.id }}" tabindex="-1" class="row-link">
+                    <p>{{ i.dc_delta }}</p>
+                    <!--<p>Lowest on {{ i.dc_low_world }}</p>-->
+                </a>
+            </td>
+            <td><a target="_blank" rel="noopener noreferrer" href="https://universalis.app/market/{{ i.id }}" tabindex="-1" class="row-link">{{ i.dc_low_world }}</a></td>
+            <td><a target="_blank" rel="noopener noreferrer" href="https://universalis.app/market/{{ i.id }}" tabindex="-1" class="row-link">{{ i.weight }}</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>

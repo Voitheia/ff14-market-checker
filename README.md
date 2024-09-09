@@ -1,17 +1,15 @@
 ### TODO
 
-think of way to make how market data is stored more efficient. do i just make a custom object for market data and attach a list of them to an item rather than having the market data in a separate table? is that more efficient?
-    i might've already done this with market_data_list?
 
-i'm not sure what i did with the weight really did anything
-    i need to look into the data more to make sure its calculating correctly and its getting displayed correctly
 
 list the lowest price in the main table
 update main table to reflect weight changes 
 
-make whole row on main page clickable, sends you to the universalis page for that item
+i think i need to eliminate the line `Market_Data.objects.filter(item=i)` in calculate_item_stats_worker?
+    move market_data_list into the Item model, populate when market data is pulled, then use here?
 
-might need to tweak how database is organized so that data pulled from universalis is separate from statistics i calculate
+maybe the way i'm making api requests can be improved
+    if i make my api requests less lengthy then the server should respond quicker?
 
 make configuration page so i can choose how things are compared, like to what world is the baseline?
 
@@ -47,8 +45,7 @@ push changes to the database model
 - `python .\manage.py migrage`
 run the django server
 - `python .\manage.py runserver`
-run the django server with the profiler and output to file
-- `austin -s python .\manage.py runserver > ../sample.austin`
+
 
 
 ### References

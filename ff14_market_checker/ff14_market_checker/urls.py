@@ -23,5 +23,5 @@ urlpatterns = [
     path("", include("delta_checker.urls")),
     path("delta_checker/", include("delta_checker.urls")),
     path("admin/", admin.site.urls),
-    path("silk/", include("silk.urls", namespace="silk")),
+    #path("silk/", include("silk.urls", namespace="silk")),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
